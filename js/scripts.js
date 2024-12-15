@@ -279,7 +279,7 @@ function inicitializePlanPlantoes(){
 function loadQRCodeScript() {
     // Carrega o script html5-qrcode.min.js
     const script = document.createElement('script');
-    script.src = '/js/html5-qrcode.min.js'; // Caminho correto do script
+    script.src = './js/html5-qrcode.min.js'; // Caminho correto do script
     script.onload = function() {
         initializeQRCodeScanner(); // Função para iniciar o leitor de QR Code após o script carregar
     };
