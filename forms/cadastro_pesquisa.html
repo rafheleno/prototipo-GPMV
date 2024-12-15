@@ -1,0 +1,62 @@
+<div id="w-pesquisa" class="module">
+
+    <button class="close-window" onclick="closeID('w-pesquisa')">X</button>
+
+    <h2>Coleta de Dados das Mudas</h2>
+    
+    <form id="formMudas">
+        <div class="form-group">
+            <label for="dataPesquisa">Data da Pesquisa</label>
+            <input type="date" id="dataPesquisa" name="dataPesquisa" required>
+        </div>
+        <div class="form-group">
+            <label for="codigoQR">Código QR da Bandeja</label>
+            <input type="text" id="codigoQR" name="codigoQR" placeholder="Insira o código QR da bandeja" required>
+        </div>
+
+        
+        <h3>Características das Mudas</h3>
+        <!-- Inputs para adição de dados -->
+        <div class="form-group">
+            <label for="tamanho">Tamanho (cm): 
+                <span id="tamanhoValue">10</span>
+            </label>
+            <input type="range" id="tamanho" min="5" max="50" step="1" value="10">
+        </div>
+        <div class="form-group">
+            <label for="folhas">Quantidade de Folhas: 
+                <span id="folhasValue">5</span>
+            </label>
+            <input type="range" id="folhas" min="1" max="20" step="1" value="5">
+        </div>
+        <div class="form-group">
+            <label for="rusticidade">Rusticidade (0-10): 
+                <span id="rusticidadeValue">5</span>
+            </label>
+            <input type="range" id="rusticidade" min="0" max="10" step="0.5" value="5">
+        </div>
+        <div class="form-group">
+            <label for="aspecto">Aspecto (0-5): 
+                <span id="aspectoValue">1</span>
+            </label>
+            <input type="range" id="aspecto" min="0" max="5" step="1" value="1">
+        </div>
+        <div class="form-group">
+            <button type="button" id="addRow">Adicionar valores selecionados</button>
+        </div>
+   
+
+        <div id="listContainer" class="listagem"></div>
+
+        <div class="results">
+            <p>Média do Tamanho: <span id="mediaTamanho">-</span> cm</p>
+            <p>Média de Folhas: <span id="mediaFolhas">-</span></p>
+            <p>Média de Rusticidade: <span id="mediaRusticidade">-</span></p>
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Salvar Dados da bandeija</button>
+            <button type="button" class="cancel" onclick="form.reset();scrollToTop('w-pesquisa')">Cancelar</button>
+        </div>        
+    </form>
+</div>

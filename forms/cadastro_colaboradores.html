@@ -1,0 +1,96 @@
+<div id="colaborador-w-Colaboradores" class="module-dobro">
+    <button class="close-window" onclick="closeID('colaborador-w-Colaboradores')">X</button>
+    <h2>Colaboradores</h2>
+
+    <div id="listacolaboradores" class="list-container-sample">
+
+    </div>
+
+    <form id="colaborador-colaboradorForm">
+        <!-- Dados Básicos -->
+        <div class="form-group">
+            <label for="colaborador-nome">Nome:</label>
+            <input type="text" id="colaborador-nome" name="colaborador-nome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="colaborador-email">E-mail:</label>
+            <input type="email" id="colaborador-email" name="colaborador-email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="colaborador-funcao">Função:</label>
+            <input type="text" id="colaborador-funcao" name="colaborador-funcao" required>
+        </div>
+
+        <div class="form-group">
+            <label for="colaborador-setor">Atividade</label>
+            <select id="colaborador-setor" name="colaborador-setor" required>
+                <option value="" disabled selected>Selecione o tipo</option>
+                <option value="plantio">Plantio</option>
+                <option value="apoio">Apoio</option>
+                <option value="distribuicao">Distribuição</option>
+                <option value="irrigação">Irrigação</option>
+                <option value="tratorista">Tratorista</option>
+                <option value="operador">Operador de máquina</option>
+                <option value="manejo1">Manejo - Abertura</option>
+                <option value="manejo2">Manejo - Seleção</option>
+                <option value="manejo3">Manejo - Expedição</option>
+                <option value="estiva">Carregamento</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="colaborador-horaInicio">Hora de Início de jornada:</label>
+            <input type="time" id="colaborador-horaInicio" name="colaborador-horaInicio" required>
+        </div>
+
+        <div class="form-group">
+            <label for="colaborador-horaFim">Hora de Fim: de jornada</label>
+            <input type="time" id="colaborador-horaFim" name="colaborador-horaFim" required>
+        </div>
+
+        <div class="form-group">
+            <label for="colaborador-senha">Digite a senha</label>
+            <input type="password" id="colaborador-senha" name="colaborador-senha" placeholder="Senha acima de 8 dígitos" required>
+        </div>
+        <div class="form-group">
+            <label for="colaborador-resenha">Re-digite a senha</label>
+            <input type="password" id="colaborador-resenha" name="colaborador-resenha" placeholder="Senha acima de 8 dígitos" required>
+        </div>
+
+        <!-- Plantões 
+        <h2>Plantões</h2>
+        <div id="plantoesContainer">
+            <div class="plantao-form">
+                <label for="colaborador-dataPlantao">Data do Plantão :</label>
+                <input type="date" class="colaborador-dataPlantao" >
+
+                <label for="colaborador-setor">Atividade</label>
+                <select id="colaborador-setor" name="colaborador-setor" >
+                    <option value="" disabled selected>Selecione o setor</option>
+                    <option value="plantio">Plantio</option>
+                    <option value="apoio">Apoio</option>
+                    <option value="distribuicao">Distribuição</option>
+                    <option value="irrigação">Irrigação</option>
+                    <option value="tratorista">Tratorista</option>
+                    <option value="operador">Operador de máquina</option>
+                    <option value="manejo1">Manejo - Abertura</option>
+                    <option value="manejo2">Manejo - Seleção</option>
+                    <option value="manejo3">Manejo - Expedição</option>
+                    <option value="estiva">Carregamento</option>
+                </select>
+            </div>
+        </div>
+        <button type="button" id="addPlantaoButton">Adicionar Plantão</button>
+        -->
+        <!-- Botão para salvar -->
+       
+        <div class="form-group">
+            <button type="submit" onclick="salvarColaborador()">Salvar Colaborador</button>
+            <button type="button" class="cancel" onclick="form.reset();scrollToTop('colaborador-w-Colaboradores')">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+

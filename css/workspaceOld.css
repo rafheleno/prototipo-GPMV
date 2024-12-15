@@ -1,0 +1,189 @@
+/* Estilo do cabeçalho da pafina*/
+.header {
+    grid-area: header;
+    background-color: #bcd4e6;
+    height: 150px; 
+    padding: 10px;
+    
+}
+
+/* Estilo dos botões de opções */
+.header button{
+    font-size: 12px;
+    width: 100px;
+    height: 80px;
+    margin: 5px;
+    border-radius: 8px;
+    border: 1px inser  #516d3b;
+}
+
+
+
+
+.form-group{
+    margin: 10px;
+}
+
+.form-group label span {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input{
+    width: 100%;
+    height: 50px;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+.form-group select {
+    width: 100%;
+    font-size: 20px;
+    height: 50px;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+.form-group button{
+    width: 100%;
+    height: 50px;
+    border-radius: 55px;
+    font-size: 15px;
+    background-color: #1573df;
+}
+
+
+/* 
+
+    Estilo para as listas de bandejas e tarefas 
+    
+*/
+.list-view {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px inset black;
+    height: 200px;
+    overflow-y: scroll;
+    
+}
+
+.list-view li {
+    padding: 0.5rem;
+    border: 1px solid #8688bb;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.listagem{
+
+    border: 2px solid #000000;
+    max-height: 300px;
+    font-size: 22px;
+}
+
+.listagem div{
+    margin: 2px;
+    background-color: white;
+}
+
+.calendario{
+
+    display: grid;
+    grid-template-columns:auto ; 
+    grid-template-rows: auto ;
+}
+
+.dia {
+    border: 1px solid #1573df;
+    padding: 10px;
+    height: 180px;
+    
+}
+
+.titulo-dia {
+    display: none;
+}
+
+.tarefa {
+    margin: 3px 0;
+    padding: 5px;
+    border: 1px solid #ddd;
+    cursor: grab;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    
+}
+
+.tarefa:active {
+    cursor: grabbing;
+}
+
+
+
+
+
+
+
+@media (min-width: 1900px) {
+
+    .header {
+        background-color: #bcd4e6;
+        height: 150px; 
+        padding: 10px;
+        width: 100%;
+    }
+
+    .button-bar button{
+        font-size: 15px;
+        width: 180px;
+        height: 70px;
+        border-radius: 8px;
+        border: 1px inser  #888;
+    }
+
+    .calendario{
+
+        display: grid;
+        grid-template-columns:auto auto auto auto auto auto auto; 
+        grid-template-rows: auto auto auto auto auto auto auto;
+    }
+
+    .titulo-dia {
+        background-color: #1573df;
+        border: 2px solid  white;
+        padding: 5px;
+        height: 30px;
+        text-align: center;
+        font-weight: bold;
+        color:white;  
+    }
+    
+
+
+}
+
+
+
+

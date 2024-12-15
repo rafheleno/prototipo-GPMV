@@ -1,0 +1,118 @@
+* {
+
+    --bGround: #d4edda;
+    --bGround: #000000;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    
+    background-color: var(--bGround);
+    height: 100vh;
+    display: grid;
+    padding: 5px;
+    grid-template-areas: 'header header header header header'
+                         'nav tarefa tarefa tarefa tarefa'
+                         'nav article article article article'
+                         'nav article article article article'
+                         'nav article article article article';
+    grid-template-columns:5% auto auto auto auto; 
+    grid-template-rows: auto 14% auto auto auto; 
+}
+
+
+.main-content {
+    grid-area: article;
+    padding: 10px;
+    margin: 10px;
+    overflow-y: auto;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 2px solid white;
+}
+
+.button-bar {
+    width: 20px;
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow-x:scroll;  
+    z-index: 10;
+}
+
+.button-bar:hover{
+    width: 150px;
+    transition: width 0.3s ease;
+}
+
+
+.qr-reader {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f9f9f9;
+}
+
+.qr-result {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+
+@media (min-width: 768px) {
+   /* .form-container {
+        max-width: 700px;
+        margin: auto;
+        padding: 20px;
+        background-color: #bcd4e6;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow-y: auto;
+    }*/
+
+
+
+}
+
+@media (min-width: 1900px) {
+
+    body {
+        background-color: #d4edda;
+        height: 100vh;
+        display: grid;
+        padding: 5px;
+        grid-template-areas: 'header header header header header'
+                             'nav tarefa tarefa tarefa tarefa'
+                             'nav article article article article'
+                             'nav article article article article'
+                             'nav article article article article';
+        grid-template-columns:10% auto auto auto auto; 
+        grid-template-rows: auto 14% auto auto auto; 
+    }
+
+    .button-bar {
+        grid-area: nav;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        overflow-y:scroll;  
+        width: 200px;
+    }
+
+    .button-bar:hover{
+        width: 200px;
+    }
+
+
+
+}

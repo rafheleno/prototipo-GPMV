@@ -1,0 +1,84 @@
+<div id="w-lotes" class="module">
+    <button class="close-window" onclick="closeID('w-lotes')">X</button>
+    <h1>Lotes de produção</h1>
+
+    <div id="listalllotes" class="list-container-sample">
+
+    </div>
+       
+        <form id="loteForm">
+            <!-- Dados do Lote -->
+            <div class="form-group">
+                <label for="dataCriacao">Data Criação do Lote:</label>
+                <input type="date" id="dataCriacao" name="dataCriacao" required>
+            </div>
+
+            <div class="form-group">
+                <label for="idLote">ID do Lote:</label>
+                <input type="text" id="idLote" name="idLote" required>
+            </div>
+
+            <div class="form-group">
+                <label for="responsavel">Responsavel</label>
+                <select id="responsavel" name="responsavel" required>
+                <option value="" disabled selected>Selecione o tipo</option>
+                <!--option value="Fulano de Tal da Silva">Fulano de Tal da Silva - Ajudante de Viveiro</option>
+                <option value="Sinclano Bajulador dos chefes">Sinclano Bajulador dos chefes - Auxiliar Administrativo</option>
+                <option value="Beltrano Falador dos Campos">Beltrano Falador dos Campos - Técnico II</option-->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="localizacao">Localização</label>
+                <select id="localizacao" name="localizacao" required>
+                <option value="" disabled selected>Selecione um local</option>
+                <option value="mod1">Módulo 0 Estaqueamento</option>
+                <option value="mod2">Módulo 1 casa de vegetação</option>
+                <option value="mod3">Módulo 2 casa de sombra</option>
+                <option value="mod4">Modulo 3 Ceu Aberto</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="maximo-itens">Numero maximo de itens:</label>
+                <input type="number" id="maximo-itens" name="maximo-itens" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bandejas">Itens do lote:</label>
+                <ul id="bandejas" class="list-view">
+                    <li>Id: 23453 Genetica:6549 Data de produção:14/11/24</li>
+                    <li>Id: 23454 Genetica:6549 Data de produção:14/11/24</li>
+                    <li>Id: 34567 Genetica:6549 Data de produção:14/11/24</li>
+                    <li>Id: 12345 Genetica:6549 Data de produção:14/11/24</li>
+                </ul>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="tarefas">Histórico de tarefas atribuidas ao lote:</label>
+                <div id="task-bar_porlote" class="task-bar">
+
+                    <!--div class="task task_relesead">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Transporte">
+                        Transporte
+                    </div>
+                    <div class="task task_relesead" >
+                        <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Transporte">
+                        Transporte
+                    </div-->
+                    <!-- outras tarefas -->
+                </div>            
+            </div>
+
+            <!-- Botão para salvar -->
+            <div class="form-group">
+                <button type="submit" onclick="salvarLote()">Salvar Lote</button>
+                <button type="button" class="cancel" onclick="form.reset();scrollToTop('w-lotes')">Cancelar</button>
+            </div>
+        </form>
+        
+       
+   
+</div>
+

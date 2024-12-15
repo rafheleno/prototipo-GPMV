@@ -1,0 +1,138 @@
+<div id="w-tarefas" class="module">
+
+    <button class="close-window" onclick="closeID('w-tarefas')">X</button>
+
+    <h2>Lançamento de Tarefas</h2>
+        
+    <form id="tarefa-formTarefas">
+
+        <div class="form-group">
+            <label for="tarefa-tipo-tarefa">Tipo de Tarefa</label>
+            <select id="tarefa-tipo-tarefa" name="tarefa-tipo-tarefa" onchange="tipoTarefa(this.id)" required>
+                <option value="">Selecione</option>
+                <option value="transporte">Transporte</option>
+                <option value="plantio">Plantio</option>
+                <option value="manutencao">Manutenção</option>
+            </select>
+            <!--button class="addbuttom" onClick="toggleID('tarefa-formNovoTipoTarefa')">+</button-->
+        </div>
+
+        <div class="form-group transporte hidden">
+            <div id="tarefa-transportehistorico">
+                <label for="tarefa-trator1">Trator Agrale 01 tarefas em aberto</label>
+                <div class="micro-task-container">
+                    <div class="micro-task"></div>
+                    <div class="micro-task"></div>
+                    <div class="micro-task"></div>
+                    <div class="micro-task"></div>
+                    <div class="micro-task"></div>
+                </div>
+                <label for="tarefa-trator1">Trator Agrale 01 tarefas em aberto</label>
+                <div class="micro-task-container">
+                    <div class="micro-task"></div>
+                    <div class="micro-task"></div>
+               
+                </div>
+            </div>            
+        </div>       
+
+        <div class="form-group transporte hidden">
+            <label for="tarefa-lote">Identificação do lote</label>
+            <select id="tarefa-lote" name="tarefa-lote" required>
+                <option value="">Selecione</option>
+
+            </select>
+        </div>
+
+        <div class="form-group plantio hidden">
+            <label for="tarefa-qtd">Quantidade de unidades</label>
+            <input type="text" id="tarefa-qtd" name="tarefa-qtd">
+        </div>            
+
+        <div class="form-group plantio hidden">
+            <label for="tarefa-gen">Genetica</label>
+            <input type="text" id="tarefa-gen" name="tarefa-gen">
+        </div>  
+
+        <div class="form-group plantio hidden">
+            <label for="tarefa-origemmaterial">Local de Origem do material</label>
+            <select id="tarefa-origemmaterial" name="tarefa-origemmaterial" required>
+                <option value="" disabled selected>Selecione o local</option>
+
+            </select>
+        </div>          
+        
+
+        <div class="form-group transporte manutencao hidden">
+            <label for="tarefa-equipamento">Ativo</label>
+            <select id="tarefa-equipamento" name="tarefa-equipamento" required>
+                <option value="" disabled selected>Selecione o tipo</option>
+
+            </select>
+        </div>
+
+        <div class="form-group transporte hidden">
+            <label for="tarefa-local-origem">Origem</label>
+            <select id="tarefa-local-origem" name="tarefa-local-origem" required>
+                <option value="" disabled selected>Selecione o local de origem</option>
+
+            </select>
+        </div>    
+
+        <div class="form-group transporte hidden">
+            <label for="tarefa-colaborador-origem">Encaminhado por</label>
+            <select id="tarefa-colaborador-origem" name="tarefa-colaborador-origem" required>
+                <option value="" disabled selected>Selecione o responsável</option>
+
+            </select>
+        </div> 
+
+        <div class="form-group transporte hidden">
+            <label for="tarefa-local-destino">Destino</label>
+            <select id="tarefa-local-destino" name="tarefa-local-destino" required>
+                <option value="" disabled selected>Selecione o local de destino</option>
+
+            </select>
+        </div> 
+            
+        <div class="form-group transporte hidden">
+            <label for="tarefa-colaborador-destino">Acolhido por</label>
+            <select id="tarefa-colaborador-destino" name="tarefa-colaborador-destino" required>
+                <option value="" disabled selected>Selecione o responsável</option>
+
+            </select>
+        </div>            
+            
+        <div class="form-group">
+            <label for="tarefa-prioridade">Prioridade da tarefa (Baixa/Média):</label>
+            <input type="range" id="tarefa-prioridade" min="1" max="5" step="1" value="1">
+        </div>
+
+        <div class="form-group">
+            <label for="tarefa-vencimento">Vencimento da Tarefa</label>
+            <input type="date" id="tarefa-vencimento" name="tarefa-vencimento">
+        </div>
+
+        <div class="form-group">
+            <label for="tarefa-observacao">Observação</label>
+            <textarea id="tarefa-observacao" name="tarefa-observacao" rows="3" placeholder="Descreva observações necessárias"></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" onclick="salvarTarefa();document.getElementById('tarefa-formTarefas').reset();">Salvar</button>
+            <button type="button" class="cancel" onclick="form.reset();scrollToTop('w-tarefas')">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+
+<div id="formNovoTipoTarefa" class="form-container hidden">
+        <form >
+            <div class="form-group">
+                <label for="titulo-tarefa">Título do Tipo de Tarefa</label>
+                <input type="text" id="titulo-tarefa" name="titulo-tarefa" placeholder="Informe o título do tipo de tarefa" required>
+            </div>
+
+        </form>
+</div>
+

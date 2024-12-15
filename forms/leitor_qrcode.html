@@ -1,0 +1,74 @@
+<div id="w-pod_producao" class="module">
+
+    <button class="close-window" onclick="closeID('w-pod_producao')">X</button>
+
+    <h2>Terminal</h2>
+   
+    <form id="terminal-formTerminal">
+        
+        <div class="form-group">
+            <label for="terminal-datatual">Data</label>
+            <input type="date" id="terminal-datatual" name="terminal-datatual" required>
+        </div>
+
+        <div class="form-group">
+            <label for="terminal-local-origem">Local</label>
+            <select id="terminal-local-origem" name="terminal-local-origem" required>
+                <option value="" disabled selected>Selecione o local de origem</option>
+                <option value="mod1">Módulo 0 Estaqueamento</option>
+                <option value="mod2">Módulo 1 casa de vegetação</option>
+                <option value="mod3">Módulo 2 casa de sombra</option>
+                <option value="mod4">Modulo 3 Ceu Aberto</option>
+                <option value="mod4">Local Expecificado na observação</option>
+            </select>
+        </div>  
+
+        <div class="form-group">
+            <label for="terminal-lote">Lote</label>
+            <select id="terminal-lote" name="terminal-lote" required>
+                <option value="">Selecione</option>
+                <option value="00001">00001</option>
+                <option value="00002">00002</option>
+                <option value="00003">00003</option>
+                <option value="00004">00004</option>
+                <option value="00005">00005</option>
+                <option value="00006">00006</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="terminal-genetica">Genetica</label>
+            <select id="terminal-genetica" name="terminal-genetica" required>
+                <option value="">Selecione</option>
+                <option value="00001">sp6947</option>
+                <option value="00002">365</option>
+            </select>
+        </div>        
+            
+        <div id="terminal-qr-reader" style="width: 100%; height: 400px; border: 2px solid #8688bb;">
+            <img src="https://cdn-icons-png.flaticon.com/512/1341/1341632.png" style="display: flex; align-items: center; width: 200px; height: 200px;" alt="Leitor de QR-code">
+        </div>
+
+        <div class="form-group" style="color:green; margin-top: 50px;">
+            <input type="text" id="terminal-qr-result">
+        </div>
+
+        <div class="form-group">
+            <button id="terminal-addlote" type="button" style="height: 125px;" onclick="addListas('terminal-qr-result','terminal-bandejas');document.getElementById('terminal-qr-result').value='';">Adicionar unidade: Nenhum código lido</button>
+        </div>
+
+        <div class="form-group">
+            <label for="terminal-bandejas">Itens do lote:</label>
+            <ul id="terminal-bandejas" class="list-view">
+               
+            </ul>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" onclick="document.getElementById('terminal-addlote').disabled = true;">Fechar lote</button>
+            <button type="button" class="cancel" onclick="window.location.reload()">Cancelar</button>
+            <button type="button" onclick="startTask('cadastro_tarefa.html');document.getElementById('terminal-addlote').disabled = true;">Despachar</button>
+        </div>
+
+    </form>
+</div>

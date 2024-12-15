@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Grid Interface</title>
+<style>
+  :root {
+    --background-color: #d8eaff;
+    --sidebar-color: #c3e6cb;
+    --header-color: #e3f2fd;
+    --border-color: #ffffff;
+    --text-color: #333333;
+    --highlight-color: #ffff00;
+    --buttonRed-color:  #fde8e3;
+    --button-color:  #80AFC1;
+    --bginput-color:  #ffffff;
+    --btinput-color: #80AFC1;
+    --bdcalendario-color: #5B849E;
+    --bgTitulos-color: #5B849E;
+    --texttitulo-color: #ffffff;
+    --texttituloHigh: #000000;
+    --bgtask-color: #D99980;
+    --diax-color: #F4A3A3;
+  }
+
+  [data-theme="high-contrast"] {
+    --background-color: #000000;
+    --sidebar-color: #000000;
+    --header-color: #000000;
+    --border-color: #ffffff;
+    --text-color: #ffffff;
+    --highlight-color: #ffff00;
+    --buttonRed-color: #ff1500;
+    --button-color:  #000000;
+    --bginput-color:  #000000;
+    --btinput-color: #000000;
+    --bdcalendario-color: #ffff00;
+    --bgTitulos-color: #000000;
+    --texttitulo-color: #ffffff;
+    --texttituloHigh: #ffffff;
+    --bgtask-color: #000000;
+    --diax-color: #ffff00;
+    
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: grid;
+    grid-template-rows: 200px auto;
+    grid-template-columns: 250px auto;
+    grid-template-areas: 
+      "header header"
+      "sidebar article";
+    height: 100vh;
+  }
+
+  header {
+    grid-area: header;
+    background-color: var(--header-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 2px solid var(--border-color);
+  }
+
+  .header-section {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    flex-direction:column;
+  }
+
+    .header-section:nth-child(1) { flex: 4; }
+    .header-section:nth-child(2) { flex: 1; }
+    .header-section:nth-child(3) { flex: 5; }
+    .header-section:nth-child(4) { flex: 1; align-items: flex-end;}
+
+  .sidebar {
+    grid-area: sidebar;
+    background-color: var(--sidebar-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-right: 2px solid var(--border-color);
+    width: 250px;
+  }
+
+  .sidebar button {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 18px;
+    margin: 5px 0;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: pre-wrap;
+    
+  }
+
+  .article {
+    grid-area: article;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--background-color);
+    overflow-y: auto;
+  }
+
+  .module {
+    flex: 1 1 calc(33.333% - 40px); 
+    max-width: calc(33.333% - 40px); 
+    min-width: 300px; 
+    background-color: var(--sidebar-color);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+.module-dobro {
+    flex: 2 1 calc(66.666% - 40px); 
+    max-width: calc(66.666% - 40px); 
+    min-width: 500px; 
+    background-color: var(--sidebar-color);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.module-triplo {
+    flex: 2 1 100%; 
+    max-width: 100%; 
+    min-width: 1500px; 
+    background-color: var(--sidebar-color);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+  .module h2 {
+    margin: 0 0 10px;
+    color: var(--text-color);
+  }
+
+  .module h3 {
+    margin: 0 0 10px;
+    color: var(--text-color);
+  }
+
+  [data-theme="high-contrast"] .module h2, [data-theme="high-contrast"] .module h3 {
+    color: var(--highlight-color);
+  }
+
+  [data-theme="high-contrast"] {
+    font-weight: bold;
+  }
+
+.circleButton {
+    background: var(--sidebar-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 30px;
+    cursor: pointer;
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 0.8rem; 
+    text-align: center; 
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.TitleHigh{
+        font-size: 25px;
+        font-weight:unset;
+        color: var(--texttituloHigh);
+        white-space: wrap;
+    }
+
+
+  @media (max-width: 800px) {
+    body {
+      grid-template-rows: auto auto auto;
+      grid-template-columns: auto;
+      grid-template-areas: 
+        "header"
+        "sidebar"
+        "article";     
+    }
+
+    header {
+      flex-direction: column;
+    }
+
+    .header-section {
+        text-align: center;
+        padding: 5px 0;
+        flex-direction: row;
+    }
+
+    .header-section:nth-child(1) { flex: 3; }
+    .header-section:nth-child(2) { flex: 6; }
+    .header-section:nth-child(3) { flex: 5; }
+    .header-section:nth-child(4) { flex: 1; align-items: flex-end;flex-direction: row;}
+
+    .sidebar {
+      padding: 5px;
+      border-bottom: 2px solid var(--border-color);
+      width: 100%;
+      overflow-x: auto;
+      flex-direction: row;
+      max-height: 100px;
+    }
+
+    .sidebar button {
+        background-color: var(--background-color);
+        border: 1px solid var(--border-color);
+        color: var(--text-color);
+        font-weight: bold;
+        font-size: 18px;
+        margin: 3px;
+        padding: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        white-space: pre-wrap;
+        min-width: 200px;
+        max-width: 400px;
+        max-height: 100px;
+        
+    }
+
+    .module {
+      flex: 1 1 100%;
+      max-width: 100%; 
+    }
+
+    .module {
+        flex: 1 1 calc(50% - 40px); 
+        max-width: calc(50% - 40px); 
+        min-width: 365px; 
+
+    }
+
+    .module-dobro {
+        flex: 1 1 calc(50% - 40px); 
+        max-width: calc(50% - 40px); 
+        min-width: 365px;  
+
+    }
+
+    .module-triplo {
+        flex: 1 1 calc(50% - 40px); 
+        max-width: calc(50% - 40px); 
+        min-width: 350px;  
+
+    }
+
+    .article {
+      gap: 10px;
+     
+    }
+
+    .TitleHigh{
+        font-size: 15px;
+        font-weight:unset;
+        color: var(--texttituloHigh);
+    }
+}
+</style>
+<link rel="stylesheet" href="css/forms.css">
+<link rel="stylesheet" href="css/workspace.css">
+<link rel="stylesheet" href="css/tarefas.css">
+
+<script src="js/dbgeration.js"></script>
+</head>
+<body>
+    <header>
+        <a href="" style="color: var(--texttituloHigh);" title="Clique para adicionar repositorio de dados"  onclick="saveDataColaboradores(); saveDataAtivos(); saveDataBandejas(); salvardataLote(); salvardatatarefa()">Gerador registro</a>
+        <div class="header-section"></div>
+        <div class="header-section"><p class="TitleHigh">Gerenciamento de produção de mudas em viveiro</p></div>
+        <div class="header-section"></div>
+        <div class="header-section" style="width: 80px;">
+        <a href="#" style="color: var(--texttituloHigh);" onclick="toggleContrast()">Alto Contraste</a>
+        
+        </div>
+    </header>
+
+    <aside class="sidebar">
+        <button title="Colaboradores" onclick="startTask('cadastro_colaboradores.html',initializeColaboradoresForm)">Colaboradores</button>
+        <button title="Cadastro de Ativos" onclick="startTask('cadastro_ativos.html',initializeAtivos)">Ativos</button>
+        <button title="Cadastro de Bandeija" onclick="startTask('cadastro_bandeja.html')">Bandejas</button>
+        <button title="Lotes de produtos" onclick="startTask('cadastro_lotes.html',getalllotes)">Lotes</button>
+        <button title="Acompanhamento Pesquisa" onclick="startTask('cadastro_pesquisa.html',initializeSlidersAndForm)">Pesquisa e acompanhamento</button>
+        <button title="Adicionar tarefa não agregada" onclick="startTask('cadastro_tarefa.html',initializeTarefas)">Criar tarefa</button>
+        <button title="Gestão de plantões" onclick="startTask('getsao_plantao.html',inicitializePlanPlantoes)">Planejamento de plantões</button>
+        <button title="Terminal para produção" onclick="startTask('leitor_qrcode.html',loadQRCodeScript)">Terminal de produção</button>
+        <button title="planejar produção" onclick="startTask('distribuicao_producao2.html',inicializeCalendario)">Planejamento de produção</button>
+        <button title="Terminal de tarefas" onclick="startTask('tesrminal_tarefacil.html')">Terminal de tarefas</button>
+    </aside>
+    <div id="modules-container" class="article">
+
+    </div>
+
+<script src="js/localstorage.js"></script>
+<script src="js/scripts.js"></script>
+
+
+
+<script>
+function toggleContrast() {
+    const body = document.body;
+    if (body.hasAttribute('data-theme')) {
+    body.removeAttribute('data-theme');
+    } else {
+    body.setAttribute('data-theme', 'high-contrast');
+    }
+}
+</script>
+</body>
+</html>
