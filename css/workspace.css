@@ -51,7 +51,7 @@
 .imagemlist{
     width: 8%; 
     height: 98%;
-    margin-left:20px;"
+    margin-left:20px;
 }
 
 
@@ -220,9 +220,9 @@
     }
 
     .imagemlist{
-        width: 20%; 
-        height: 98%;
-        margin-left:20px;"
+
+        width: 20%;
+       
     }
 
 }
