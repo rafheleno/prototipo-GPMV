@@ -287,6 +287,29 @@ function inicitializePlanPlantoes(){
 }
 
 
+function gps(idlatitude,idlongitude){
+
+        lati = document.getElementById(idlatitude);
+        longi = document.getElementById(idlongitude);
+
+    if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+                lati.textContent = latitude;
+                longi.textContent = longitude;
+            },
+            (error) => {
+                //locationDisplay.textContent = `Erro ao obter localização: ${error.message}`;
+                lati.textContent = "";
+                longi.textContent = "";
+            }
+        );
+    } else {
+        Alert("Geolocalização não é suportada neste navegador.");
+    }
+}
+
 /*
 
  qr code leitor

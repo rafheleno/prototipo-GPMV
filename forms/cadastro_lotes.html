@@ -73,12 +73,17 @@
 
             <div class="form-group">
                 <label for="localizacao">Geo-Localização</label>
-                <input type="text" id="localizacao" name="localizacao" placeholder="Localização por GPs">
-                
+                <button type="button" onclick="gps('locallati','locallongi')">Capturar localização</button>
+                <label for="tarefas">Lotitude</label>
+                <input type="text" id="locallati" name="localizacao" placeholder="Localização por GPs">
+                <label for="tarefas">Longitude</label>
+                <input type="text" id="locallongi" name="localizacao" placeholder="Localização por GPs">
+
             </div> 
 
             <!-- Botão para salvar -->
             <div class="form-group">
+                
                 <button type="submit" onclick="salvarLote()">Salvar Lote</button>
                 <button type="button" class="cancel" onclick="form.reset();scrollToTop('w-lotes')">Cancelar</button>
             </div>
