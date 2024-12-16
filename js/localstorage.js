@@ -336,9 +336,9 @@ function getallativos(){
             else 
                 neWdiv.innerHTML =  neWdiv.innerHTML + item.nomeAtivo+"->"+item.descricao;  
             if(item.fotoAtivo!="" || item.fotoAtivo!=null)
-                neWdiv.innerHTML = neWdiv.innerHTML + '<img id="ativo-imagePreview" src="'+'/imagem/'+item.fotoAtivo+'" alt="-----" class="imagemlist" > ';  //style=" width: 8%; height: 98%;margin-left:20px;"
+                neWdiv.innerHTML = neWdiv.innerHTML + '<img id="ativo-imagePreview" src="./imagem/'+item.fotoAtivo+'" alt="-----" class="imagemlist" > ';  //style=" width: 8%; height: 98%;margin-left:20px;"
             else
-                neWdiv.innerHTML = neWdiv.innerHTML + '<img id="ativo-imagePreview" src="/imagem/incapacidade.png" alt="-----" class="imagemlist" > ';  //style=" width: 8%; height: 98%;margin-left:20px;"
+                neWdiv.innerHTML = neWdiv.innerHTML + '<img id="ativo-imagePreview" src="./imagem/incapacidade.png" alt="-----" class="imagemlist" > ';  //style=" width: 8%; height: 98%;margin-left:20px;"
             repository.appendChild(neWdiv);
       
         });
