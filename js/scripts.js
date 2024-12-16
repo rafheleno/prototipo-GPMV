@@ -296,13 +296,13 @@ function gps(idlatitude,idlongitude){
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 const { latitude, longitude } = position.coords;
-                lati.textContent = latitude;
-                longi.textContent = longitude;
+                lati.value = latitude;
+                longi.value = longitude;
             },
             (error) => {
                 //locationDisplay.textContent = `Erro ao obter localização: ${error.message}`;
-                lati.textContent = "";
-                longi.textContent = "";
+                lati.textContent = "Erro";
+                longi.textContent = errror.errorMessage;
             }
         );
     } else {
