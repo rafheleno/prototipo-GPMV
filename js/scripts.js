@@ -299,8 +299,9 @@ function loadQRCodeScript() {
     const script = document.createElement('script');
     script.src = './js/html5-qrcode.min.js'; 
     script.onload = function() {
-        initializeQRCodeScanner(); 
-    document.head.appendChild(script);}
+        initializeQRCodeScanner();
+    } 
+    document.head.appendChild(script);
 }
 
 // Função para inicializar o scanner de QR Code
