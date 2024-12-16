@@ -169,6 +169,19 @@ function saveDataAtivos() {
     const ativos = [
         {
             "tipoAtivo": "modulo",
+            "nomeAtivo": "Mini Jardim 1",
+            "responsavel": "Romualda Morgato",
+            "dataAquisicao": "2014-05-01",
+            "descricao": "Módulo para cultivo de metrizes",
+            "fotoAtivo": "",
+            "dadosEspecificos": {
+                "areaModulo": 5000,
+                "capacidadeModulo": 2000,
+                "finalidadeModulo": "produção"
+            }
+        },
+        {
+            "tipoAtivo": "modulo",
             "nomeAtivo": "Barracao de estaquia",
             "responsavel": "Carlos Oliveira",
             "dataAquisicao": "2014-05-01",
