@@ -54,7 +54,11 @@
         </div>
 
         <div class="form-group">
-            <button id="terminal-addlote" type="button" style="height: 125px;" onclick="addListas('terminal-qr-result','terminal-bandejas');document.getElementById('terminal-qr-result').value='';">Adicionar unidade: Nenhum código lido</button>
+            <button id="terminal-addcolaborador" type="button" style="height: 125px;" onclick="toggleID('terminal-addlotediv');document.getElementById('terminal-qr-result').value='';">Coletar codigo do colaborador</button>
+        </div>
+
+        <div id="terminal-addlotediv" class="form-group hidden">
+            <button id="terminal-addlote" type="button" style="height: 125px;" onclick="toggleID('terminal-addlotediv');addListas('terminal-qr-result','terminal-bandejas');document.getElementById('terminal-qr-result').value='';">Adicionar unidade ao lote</button>
         </div>
 
         <div class="form-group">
