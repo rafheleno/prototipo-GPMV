@@ -375,7 +375,6 @@ function sendNotification(taskName) {
         return;
     }
 
-
     // Solicitar permissão, se necessário
     if (Notification.permission === "default") {
         Notification.requestPermission().then((permission) => {

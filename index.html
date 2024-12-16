@@ -8,15 +8,7 @@
 
     body {
       font-family: Arial, sans-serif;
-      font-size: 25px;
-      background-color: rgb(131, 146, 135,1.0);
-      background-image: url('imagem/background.png'); 
-      background-size: cover; 
-      background-blend-mode:color-dodge ;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
-      
+      font-size: 25px;    
       display: flex;
       justify-content: center;
       align-items: center;
@@ -28,7 +20,8 @@
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      width: 300px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+      width: 400px;
       
     }
     .login-box h1 {
@@ -75,12 +68,21 @@
     .hidden{
 
       display: none;
-
     }
+
+    .imglog{
+      width: 395px;
+      height: 250px;
+      border: 4px inset black;
+    }
+
   </style>
 </head>
 <body>
   <div class="login-box">
+
+    <div><img src="imagem/background.png" class="imglog" ></div>
+
     <h1>Login</h1>
     <input type="email" id="email" placeholder="Digite seu email" required>
     <input type="password" id="password" placeholder="Digite sua senha" required>
@@ -93,7 +95,7 @@
     <a href="#" onclick="toggleID('recuperacao')">Esqueceu a senha?</a>
   </div>
 
-  <script src="js/scripts.js"></script>
+  <script src="js/scripts.js"></script> </script>
   
 </body>
 </html>
