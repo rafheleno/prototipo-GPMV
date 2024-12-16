@@ -5,9 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tela de Login</title>
   <style>
+
     body {
       font-family: Arial, sans-serif;
-      background-color: #d4edda;
+      font-size: 25px;
+      background-color: rgb(131, 146, 135,1.0);
+      background-image: url('imagem/background.png'); 
+      background-size: cover; 
+      background-blend-mode:color-dodge ;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      
       display: flex;
       justify-content: center;
       align-items: center;
@@ -20,6 +29,7 @@
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       width: 300px;
+      
     }
     .login-box h1 {
       text-align: center;
@@ -27,11 +37,12 @@
       color: #555;
     }
     .login-box input {
-      width: 100%;
+      width: 90%;
       padding: 10px;
       margin: 10px 0;
       border: 1px solid #ccc;
       border-radius: 4px;
+      font-size: 20px;
     }
     .login-box button {
       width: 100%;
@@ -41,6 +52,7 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      font-size: 20px;
     }
     .login-box button:hover {
       background-color: #218838;
@@ -55,6 +67,16 @@
     .login-box a:hover {
       text-decoration: underline;
     }
+
+    .recuperacao{
+      padding: 20px;
+    }
+
+    .hidden{
+
+      display: none;
+
+    }
   </style>
 </head>
 <body>
@@ -63,24 +85,15 @@
     <input type="email" id="email" placeholder="Digite seu email" required>
     <input type="password" id="password" placeholder="Digite sua senha" required>
     <button onclick="login()">Entrar</button>
-    <a href="#">Esqueceu a senha?</a>
+
+    <div id="recuperacao" class="recuperacao hidden">
+        <button type="button" >Enviar email de recuperação</button>
+    </div>
+
+    <a href="#" onclick="toggleID('recuperacao')">Esqueceu a senha?</a>
   </div>
 
-  <script>
-    function login() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      if (!email.includes('@')) {
-        alert('Talves você tenha errado ou digitado o email, regidite por favor.');
-        return;
-      }
-      if (!password) {
-        alert('O campo senha não pode estar vazio.');
-        return;
-      }
-      
-      window.location.href = 'area_trabalho.html';
-    }
-  </script>
+  <script src="js/scripts.js"></script>
+  
 </body>
 </html>

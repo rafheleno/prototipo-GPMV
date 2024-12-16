@@ -1,3 +1,22 @@
+
+    function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      if (!email.includes('@')) {
+        alert('Talves você tenha errado ou digitado o email, regidite por favor.');
+        return;
+      }
+      if (!password) {
+        alert('O campo senha não pode estar vazio.');
+        return;
+      }
+      
+      window.location.href = 'area_trabalho.html';
+    }
+  
+
+
+
 function toggleID(idtarget){
 
     const targetId = document.getElementById(idtarget);
@@ -279,7 +298,8 @@ function inicitializePlanPlantoes(){
 function loadQRCodeScript() {
     // Carrega o script html5-qrcode.min.js
     const script = document.createElement('script');
-    script.src = '/js/html5-qrcode.min.js'; // Caminho correto do script
+    script.src = './js/html5-qrcode.min.js'; // Caminho correto do script
+    
     script.onload = function() {
         initializeQRCodeScanner(); // Função para iniciar o leitor de QR Code após o script carregar
     };

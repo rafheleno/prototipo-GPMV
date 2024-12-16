@@ -67,6 +67,7 @@
     align-items: center;
     padding: 0 20px;
     border-bottom: 2px solid var(--border-color);
+
   }
 
   .header-section {
@@ -78,7 +79,9 @@
 
     .header-section:nth-child(1) { flex: 4; }
     .header-section:nth-child(2) { flex: 1; }
-    .header-section:nth-child(3) { flex: 5; }
+    .header-section:nth-child(3) { flex: 5; 
+
+    }
     .header-section:nth-child(4) { flex: 1; align-items: flex-end;}
 
   .sidebar {
@@ -282,10 +285,10 @@
 <link rel="stylesheet" href="css/workspace.css">
 <link rel="stylesheet" href="css/tarefas.css">
 
-<script src="js/dbgeration.js"></script>
+<script src="./js/dbgeration.js"></script>
 </head>
 <body>
-    <header>
+    <header role="navigation">
         <a href="" style="color: var(--texttituloHigh);" title="Clique para adicionar repositorio de dados"  onclick="saveDataColaboradores(); saveDataAtivos(); saveDataBandejas(); salvardataLote(); salvardatatarefa()">Gerador registro</a>
         <div class="header-section"></div>
         <div class="header-section"><p class="TitleHigh">Gerenciamento de produção de mudas em viveiro</p></div>
@@ -296,7 +299,7 @@
         </div>
     </header>
 
-    <aside class="sidebar">
+    <aside class="sidebar" role="navigation">
         <button title="Colaboradores" onclick="startTask('cadastro_colaboradores.html',initializeColaboradoresForm)">Colaboradores</button>
         <button title="Cadastro de Ativos" onclick="startTask('cadastro_ativos.html',initializeAtivos)">Ativos</button>
         <button title="Cadastro de Bandeija" onclick="startTask('cadastro_bandeja.html')">Bandejas</button>
@@ -308,7 +311,7 @@
         <button title="planejar produção" onclick="startTask('distribuicao_producao2.html',inicializeCalendario)">Planejamento de produção</button>
         <button title="Terminal de tarefas" onclick="startTask('tesrminal_tarefacil.html')">Terminal de tarefas</button>
     </aside>
-    <div id="modules-container" class="article">
+    <div id="modules-container" class="article" role="navigation">
 
     </div>
 
