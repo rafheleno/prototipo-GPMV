@@ -76,23 +76,7 @@
     Estilo para as listas de bandejas e tarefas 
     
 */
-.list-view {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    border: 1px inset black;
-    height: 200px;
-    overflow-y: scroll;
-    
-}
 
-.list-view li {
-    padding: 0.5rem;
-    border: 1px solid #8688bb;
-    margin-bottom: 0.5rem;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-}
 
 .listagem{
 

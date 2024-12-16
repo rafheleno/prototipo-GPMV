@@ -16,7 +16,6 @@
   
 
 
-
 function toggleID(idtarget){
 
     const targetId = document.getElementById(idtarget);
@@ -298,15 +297,10 @@ function inicitializePlanPlantoes(){
 function loadQRCodeScript() {
     // Carrega o script html5-qrcode.min.js
     const script = document.createElement('script');
-    script.src = './js/html5-qrcode.min.js'; // Caminho correto do script
-<<<<<<< HEAD
-    
-=======
->>>>>>> f343291b7252e7d2f247d94c5698e50ec714dde4
+    script.src = './js/html5-qrcode.min.js'; 
     script.onload = function() {
-        initializeQRCodeScanner(); // Função para iniciar o leitor de QR Code após o script carregar
-    };
-    document.head.appendChild(script);
+        initializeQRCodeScanner(); 
+    document.head.appendChild(script);}
 }
 
 // Função para inicializar o scanner de QR Code
