@@ -8,11 +8,11 @@
     <div class="calendario-container">
         
         <div class="controleMes">
-            <div class="form-group">
-            <button id="prev-mes" >&lt;</button>
-            <label id="mes-ano" >Janeiro 2024</label>
-            <button id="next-mes" >&gt;</button>
-            </div>
+            
+           
+                <button id="prev-mes" >&lt;</button>
+                <label id="mes-ano" >Janeiro 2024</label>
+                <button id="next-mes" >&gt;</button>
             
 
         </div>
@@ -35,30 +35,30 @@
     <h2>Lancamento de Produção</h2>
     <p >Distribuição de produção para&nbsp; </p>
     <div id="dialogContent"></div>
-    <form id="distribuicao-producao">
+        <form id="distribuicao-producao">
 
-    <div class="form-group">
-        <label for="composicao-producao-genetica">Genética</label>
-        <input type="text" id="composicao-producao-genetica" name="genetica" placeholder="Informe a genética" required>
-    </div>  
-    
-    <div class="form-group">
-        <label for="composicao-producao-total" >Meta total da produção</label>
-        <input type="number" id="composicao-producao-total" name="total" placeholder="Informe a genética" value="1" min="1" onchange="divider('.qtdprod',this.id)" required>
-    </div>      
-
-    <div class="form-group">
-        <label for="listacolaboradores">Colaborador</label>
-        <div style="color:var(--text-color);height: 200px; overflow-y: auto; border: 1px, solid, black;" id="listacolaboradores" name="integrante">
+            <div class="form-group">
+                <label for="composicao-producao-genetica">Genética</label>
+                <input type="text" id="composicao-producao-genetica" name="genetica" placeholder="Informe a genética" required>
+            </div>  
             
-        </div>
-    </div>
+            <div class="form-group">
+                <label for="composicao-producao-total" >Meta total da produção</label>
+                <input type="number" id="composicao-producao-total" name="total" placeholder="Informe a genética" value="1" min="1" onchange="divider('.qtdprod',this.id)" required>
+            </div>      
 
-    <div class="form-group">
-        <button type="button" style="background-color: green;width: 100%;" onclick="addtarefaproducao(document.getElementById('composicao-producao-total').value+'-'+document.getElementById('composicao-producao-genetica').value,document.getElementById('dialogContent').textContent);iniciarDragAndDrop();document.getElementById('myDialog').close()">adicionar</button>
-    </div>
+            <div class="form-group">
+                <label for="listacolaboradores">Colaborador</label>
+                <div style="color:var(--text-color);height: 200px; overflow-y: auto; border: 1px, solid, black;" id="listacolaboradores" name="integrante">
+                    
+                </div>
+            </div>
 
-    </form>
+            <div class="form-group">
+                <button type="button" style="background-color: green;width: 100%;" onclick="addtarefaproducao(document.getElementById('composicao-producao-total').value+'-'+document.getElementById('composicao-producao-genetica').value,document.getElementById('dialogContent').textContent);iniciarDragAndDrop();document.getElementById('myDialog').close()">adicionar</button>
+            </div>
+
+        </form>
     </div>  
   
 </dialog>

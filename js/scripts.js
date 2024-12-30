@@ -1,18 +1,18 @@
 
-    function login() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      if (!email.includes('@')) {
-        alert('Talves você tenha errado ou digitado o email, regidite por favor.');
-        return;
-      }
-      if (!password) {
-        alert('O campo senha não pode estar vazio.');
-        return;
-      }
-      
-      window.location.href = 'area_trabalho.html';
+function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    if (!email.includes('@')) {
+    alert('Talves você tenha errado ou digitado o email, regidite por favor.');
+    return;
     }
+    if (!password) {
+    alert('O campo senha não pode estar vazio.');
+    return;
+    }
+    
+    window.location.href = 'area_trabalho.html';
+}
   
 
 
@@ -73,17 +73,17 @@ function scrollToTop(formid) {
     }
 }*/
 
-function tipoTarefa(id){
+function troggleStateByclass(id){
 
     const TipoTarefa = document.getElementById(id);
     const SelectAllvalores = TipoTarefa.options; //captura todos os valores do select
     const Selectvalor = TipoTarefa.value; //captura o valor selecionado do select
   
-    
 
     Array.from(SelectAllvalores).forEach(option => {
         
         if(option.value!=''){
+            
             var allItems = document.querySelectorAll("." + option.value);
             allItems.forEach(item => item?.classList.add('hidden'));
         }
@@ -93,8 +93,6 @@ function tipoTarefa(id){
 
    allItems = document.querySelectorAll("." + Selectvalor);
    allItems.forEach(item => item?.classList.remove('hidden'));
-
-
 
 }
 
@@ -636,17 +634,17 @@ function inicializarCalendario(containerSelector) {
             renderdiv.id = "dia"+renderdia;
             renderdiv.classList.add('dia');
             
-
-            /* chama o mydialog e envia o id do dia */
+            /* chama o mydialog e envia o id do bloco dia */
             renderdiv.addEventListener('dblclick', (event) => {
                 const renderdialog = document.getElementById('myDialog');
                 if (renderdialog) {
                     // Passa o ID da div clicada para o diálogo
                     const dialogContent = document.getElementById('dialogContent');
                     if (dialogContent) {
-                        dialogContent.textContent = dialogContent.textContent+ event.target.id;
+                        dialogContent.textContent = event.target.id;
                     }
                     if(dialogContent.textContent.indexOf('tarefa')==-1)
+                        
                         renderdialog.showModal();
                 } else {
                     console.error('O elemento com ID "myDialog" não foi encontrado.');

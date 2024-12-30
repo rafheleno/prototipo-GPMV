@@ -14,6 +14,7 @@
     --highlight-color: #ffff00;
     --buttonRed-color:  #fde8e3;
     --button-color:  #80AFC1;
+    --buttonfont-color: #000000;
     --bginput-color:  #ffffff;
     --btinput-color: #80AFC1;
     --bdcalendario-color: #5B849E;
@@ -33,6 +34,7 @@
     --highlight-color: #ffff00;
     --buttonRed-color: #ff1500;
     --button-color:  #000000;
+    --buttonfont-color: #ffffff;
     --bginput-color:  #000000;
     --btinput-color: #000000;
     --bdcalendario-color: #ffff00;
@@ -50,12 +52,14 @@
     background-color: var(--background-color);
     color: var(--text-color);
     display: grid;
-    grid-template-rows: 200px auto;
-    grid-template-columns: 250px auto;
+    grid-template-rows: 150px 1fr auto;
+    grid-template-columns: 250px 1fr auto;
     grid-template-areas: 
-      "header header"
-      "sidebar article";
+      "header header header"
+      "sidebar article nav3"
+      "sidebar article nav3";
     height: 100vh;
+    gap:4px;
   }
 
   header {
@@ -79,9 +83,7 @@
 
     .header-section:nth-child(1) { flex: 4; }
     .header-section:nth-child(2) { flex: 1; }
-    .header-section:nth-child(3) { flex: 5; 
-
-    }
+    .header-section:nth-child(3) { flex: 5; }
     .header-section:nth-child(4) { flex: 1; align-items: flex-end;}
 
   .sidebar {
@@ -117,7 +119,24 @@
     padding: 20px;
     background-color: var(--background-color);
     overflow-y: auto;
+    border: 2px solid black;
   }
+
+  .nav3{
+
+    right: 0;
+    background-color: var(--background-color);
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    
+    
+  }
+
+  .nav3.expanded {
+      width: 280px;
+      border: 2px solid black;
+    }
 
   .module {
     flex: 1 1 calc(33.333% - 40px); 
@@ -194,12 +213,13 @@
 
   @media (max-width: 800px) {
     body {
-      grid-template-rows: auto auto auto;
+      grid-template-rows: 150 auto auto;
       grid-template-columns: auto;
       grid-template-areas: 
         "header"
         "sidebar"
-        "article";     
+        "article"; 
+            
     }
 
     header {
@@ -208,13 +228,13 @@
 
     .header-section {
         text-align: center;
-        padding: 5px 0;
+        padding: 0px 0;
         flex-direction: row;
     }
 
-    .header-section:nth-child(1) { flex: 3; }
-    .header-section:nth-child(2) { flex: 6; }
-    .header-section:nth-child(3) { flex: 5; }
+    .header-section:nth-child(1) { flex: 2; }
+    .header-section:nth-child(2) { flex: 2; }
+    .header-section:nth-child(3) { flex: 2; }
     .header-section:nth-child(4) { flex: 1; align-items: flex-end;flex-direction: row;}
 
     .sidebar {
@@ -310,10 +330,19 @@
         <button title="Terminal para produção" onclick="startTask('leitor_qrcode.html',loadQRCodeScript)">Terminal de produção</button>
         <button title="planejar produção" onclick="startTask('distribuicao_producao2.html',inicializeCalendario)">Planejamento de produção</button>
         <button title="Terminal de tarefas" onclick="startTask('tesrminal_tarefacil.html')">Terminal de tarefas</button>
+        <button title="Expande painel" class="toggle-nav3-button" >Expandir nav</button>
     </aside>
+    
+    
     <div id="modules-container" class="article" role="navigation">
 
     </div>
+    
+    
+    <nav class="nav3">
+        nav
+
+    </nav>
 
 <script src="js/localstorage.js"></script>
 <script src="js/scripts.js"></script>
@@ -329,6 +358,20 @@ function toggleContrast() {
     body.setAttribute('data-theme', 'high-contrast');
     }
 }
+
+document.querySelector('.toggle-nav3-button').addEventListener('click', function() {
+    const nav3 = document.querySelector('.nav3');
+    const article = document.querySelector('.article');
+  
+    nav3.classList.toggle('expanded');
+    
+    // Ajustar o article para liberar espaço para o nav3
+    if (nav3.classList.contains('expanded')) {
+      article.style.marginRight = '0px';  // Quando o nav se expande, o article cede espaço.
+    } else {
+      article.style.marginRight = '0px';     // Quando o nav é recolhido, o article ocupa todo o espaço.
+    }
+  });
 </script>
 </body>
 </html>

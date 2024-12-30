@@ -6,6 +6,7 @@
 */
 
 .close-window{
+    position:relative;
     background: var( --buttonRed-color);
     border: 1px solid var(--border-color);
     color: var(--text-color);
@@ -13,6 +14,8 @@
     cursor: pointer;
     border-radius: 50%; 
     float: right;
+    top: -30px;
+    left: 30px;
     width: 50px; 
     height: 50px; 
     font-size: 30px;
@@ -84,10 +87,11 @@
     flex-wrap: nowrap;
     margin: 4px;
     font-size: 1.2rem;
+   
 }
 
 .controleMes button{
-    padding: 20px;
+    padding: 10px;
     background-color: var(--button-color);
     border-radius: 8px;
     font-size: 1.2rem;
@@ -164,8 +168,6 @@
 .tool{
     display: grid;
     width: 300px;
-
-
 }
 
 .titulo-dias, .calendario-grid {   
@@ -182,7 +184,7 @@
     
 }
 
-.calendario-grid dia {
+.calendario-grid .dia {
     border: 1px solid var(--bdcalendario-color);
     height: 250px;
     display: flex;

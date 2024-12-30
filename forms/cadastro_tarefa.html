@@ -8,11 +8,18 @@
 
         <div class="form-group">
             <label for="tarefa-tipo-tarefa">Tipo de Tarefa</label>
-            <select id="tarefa-tipo-tarefa" name="tarefa-tipo-tarefa" onchange="tipoTarefa(this.id)" required>
+            <select id="tarefa-tipo-tarefa" name="tarefa-tipo-tarefa" onchange="troggleStateByclass(this.id)" required>
                 <option value="">Selecione</option>
                 <option value="transporte">Transporte</option>
                 <option value="plantio">Plantio</option>
                 <option value="manutencao">Manutenção</option>
+                <option value="abertura">Abertura</option>
+                <option value="expedicao">Expedição</option>
+                <option value="selecao">Seleção</option>
+                <option value="pesquisa">Pesquisa</option>
+                <option value="carregamento">Carregamento</option>
+                <option value="recebimento">Recebimento</option>
+                <option value="irrigacao">Irrigação</option>
             </select>
             <!--button class="addbuttom" onClick="toggleID('tarefa-formNovoTipoTarefa')">+</button-->
         </div>
@@ -36,7 +43,7 @@
             </div>            
         </div>       
 
-        <div class="form-group transporte hidden">
+        <div class="form-group transporte abertura expedicao selecao hidden">
             <label for="tarefa-lote">Identificação do lote</label>
             <select id="tarefa-lote" name="tarefa-lote" required>
                 <option value="">Selecione</option>
@@ -44,17 +51,17 @@
             </select>
         </div>
 
-        <div class="form-group plantio hidden">
+        <div class="form-group plantio hidden expedicao">
             <label for="tarefa-qtd">Quantidade de unidades</label>
             <input type="text" id="tarefa-qtd" name="tarefa-qtd">
         </div>            
 
-        <div class="form-group plantio hidden">
+        <div class="form-group plantio abertura expedicao hidden">
             <label for="tarefa-gen">Genetica</label>
             <input type="text" id="tarefa-gen" name="tarefa-gen">
         </div>  
 
-        <div class="form-group plantio hidden">
+        <div class="form-group plantio abertura hidden">
             <label for="tarefa-origemmaterial">Local de Origem do material</label>
             <select id="tarefa-origemmaterial" name="tarefa-origemmaterial" required>
                 <option value="" disabled selected>Selecione o local</option>
@@ -62,8 +69,7 @@
             </select>
         </div>          
         
-
-        <div class="form-group transporte manutencao hidden">
+        <div class="form-group transporte manutencao expedicao hidden">
             <label for="tarefa-equipamento">Ativo</label>
             <select id="tarefa-equipamento" name="tarefa-equipamento" required>
                 <option value="" disabled selected>Selecione o tipo</option>
@@ -79,7 +85,7 @@
             </select>
         </div>    
 
-        <div class="form-group transporte hidden">
+        <div class="form-group transporte abertura expedicao hidden">
             <label for="tarefa-colaborador-origem">Encaminhado por</label>
             <select id="tarefa-colaborador-origem" name="tarefa-colaborador-origem" required>
                 <option value="" disabled selected>Selecione o responsável</option>
@@ -87,7 +93,7 @@
             </select>
         </div> 
 
-        <div class="form-group transporte hidden">
+        <div class="form-group transporte abertura hidden">
             <label for="tarefa-local-destino">Destino</label>
             <select id="tarefa-local-destino" name="tarefa-local-destino" required>
                 <option value="" disabled selected>Selecione o local de destino</option>
@@ -95,7 +101,7 @@
             </select>
         </div> 
             
-        <div class="form-group transporte hidden">
+        <div class="form-group transporte abertura expedicao hidden">
             <label for="tarefa-colaborador-destino">Acolhido por</label>
             <select id="tarefa-colaborador-destino" name="tarefa-colaborador-destino" required>
                 <option value="" disabled selected>Selecione o responsável</option>
@@ -105,7 +111,14 @@
             
         <div class="form-group">
             <label for="tarefa-prioridade">Prioridade da tarefa (Baixa/Média):</label>
-            <input type="range" id="tarefa-prioridade" min="1" max="5" step="1" value="1">
+            <input type="range" id="tarefa-prioridade"  min="1" max="5" step="1" value="1" list="steps">
+            <datalist id="steps">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </datalist>
         </div>
 
         <div class="form-group">
