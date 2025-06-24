@@ -191,7 +191,7 @@ function getallcolaboratorsFilter_listasel(chave,filtro){
     var getallldata = new LoteManager('colaboradores'); 
    
     let data = getallldata.carregarLote();
-    console.log(data.length);
+    //console.log(data.length);
         data.forEach(item => {
             if(item[chave]==filtro){
                 let neWdiv = document.createElement('div');
@@ -452,7 +452,7 @@ function getallLotesOption(id){
     var getallldata = new LoteManager('lotes'); 
    
     let data = getallldata.carregarLote();
-    console.log(data.length);
+    //console.log(data.length);
         data.forEach(item => {
       
             let newoption = document.createElement('option');
@@ -477,39 +477,35 @@ function salvarTarefa() {
     const vencimento = document.getElementById("tarefa-vencimento").value;
     const observacao = document.getElementById("tarefa-observacao").value;
     const prioridade = document.getElementById("tarefa-prioridade").value;
-        
-   
-    lote = document.getElementById("tarefa-lote")?.value || "";
-    equipamento = document.getElementById("tarefa-equipamento")?.value || "";
-    localOrigem = document.getElementById("tarefa-local-origem")?.value || "";
-    colaboradorOrigem = document.getElementById("tarefa-colaborador-origem")?.value || "";
-    localDestino = document.getElementById("tarefa-local-destino")?.value || "";
-    colaboradorDestino = document.getElementById("tarefa-colaborador-destino")?.value ||"";
-    
-
-    qtd = document.getElementById("tarefa-qtd")?.value || "";
-    genetica = document.getElementById("tarefa-gen")?.value || "";
-    origemMaterial = document.getElementById("tarefa-origemmaterial")?.value || "";
+    const lote = document.getElementById("tarefa-lote")?.value || "";
+    const equipamento = document.getElementById("tarefa-equipamento")?.value || "";
+    const localOrigem = document.getElementById("tarefa-local-origem")?.value || "";
+    const colaboradorOrigem = document.getElementById("tarefa-colaborador-origem")?.value || "";
+    const localDestino = document.getElementById("tarefa-local-destino")?.value || "";
+    const colaboradorDestino = document.getElementById("tarefa-colaborador-destino")?.value ||"";
+    const qtd = document.getElementById("tarefa-qtd")?.value || "";
+    const genetica = document.getElementById("tarefa-gen")?.value || "";
+    const origemMaterial = document.getElementById("tarefa-origemmaterial")?.value || "";
     
 
     // Estrutura os dados para o envio
     const dadosTarefa = {
         tipoTarefa,
-        vencimento,
-        observacao,
-        prioridade,
         lote,
         qtd,
         genetica,
         origemMaterial,
         equipamento,
         localOrigem,
+        localDestino,
         colaboradorOrigem,
         colaboradorDestino,
-        localDestino,
+        prioridade,
+        vencimento,
+        observacao
     };
 
-    // Exemplo de como enviar os dados para um serviço ou processar os dados
+    //dados de envio para um serviço/processar os dados
     const jsonString = JSON.stringify(dadosTarefa, null, 2);
 
     console.log(jsonString); 
@@ -534,5 +530,24 @@ function getalltarefa(){
         });
 
     getallcolaboratorsOption('responsavel')        
+}
+
+function getFilteredtarefaOption(id,chave,filtro){
+
+    var repository = document.getElementById(id);
+    
+    var getallldata = new LoteManager('tarefas'); 
+   
+    let data = getallldata.carregarLote();
+    //console.log(data.length);
+
+        data.forEach(item => {
+            if(item[chave]==filtro){
+                let newoption = document.createElement('option');
+                newoption.value =  item.tipoTarefa;
+                newoption.textContent = item.tipoTarefa
+                repository.appendChild(newoption);
+            }
+        });
 }
 

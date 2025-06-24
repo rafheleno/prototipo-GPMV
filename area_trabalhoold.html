@@ -54,11 +54,10 @@
     background-color: var(--background-color);
     color: var(--text-color);
     display: grid;
-    grid-template-rows: 40px 100px 1fr auto;
+    grid-template-rows: 20px 1fr auto;
     grid-template-columns: 250px 1fr auto;
     grid-template-areas: 
       "header header header"
-      "rightside rightside rightside"
       "sidebar article nav3"
       "sidebar article nav3";
     height: 100vh;
@@ -88,30 +87,6 @@
     .header-section:nth-child(2) { flex: 1; }
     .header-section:nth-child(3) { flex: 5; }
     .header-section:nth-child(4) { flex: 1; align-items: flex-end;}
-
-  .nav {
-    grid-area: rightside;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    background-color:#80AFC1 ;
-    
-  }
-
-  .nav div{
-    width:200px;  
-    border: 1px solid white;  
-  }
-
-  .nav button{
-    width: 20%;
-    height: 40%;
-  }
-
-  .nav select{
-    width: 100%;
-    font-size: medium;
-  }
 
   .sidebar {
     grid-area: sidebar;
@@ -143,6 +118,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     gap: 20px;
+    padding: 20px;
     background-color: var(--background-color);
     overflow-y: auto;
     
@@ -160,26 +136,9 @@
   }
 
   .nav3.expanded {
-      width: 520px;
+      width: 320px;
       border: 2px solid black;
     }
-
-  .nav3 .title{
-
-    width: 100%;
-    height: 40px;
-    background-color: #80AFC1;
-    display: flex;
-    flex-wrap: nowrap;
-  }
-
-  .nav3 .title label{
-    width: 90%;
-  }
-
-  .nav3 .title button{
-    width: 10%;
-  }
 
   .module {
     flex: 1 1 calc(33.333% - 40px); 
@@ -347,8 +306,7 @@
 
 <script src="./js/dbgeration.js"></script>
 </head>
-<body onload="DeskMap()" >
-
+<body onload="carregamap()">
     <header role="navigation">
         <a href="" style="color: var(--texttituloHigh);" title="Clique para adicionar repositorio de dados"  onclick="saveDataColaboradores(); saveDataAtivos(); saveDataBandejas(); salvardataLote(); salvardatatarefa()">Gerador registro</a>
         <div class="header-section"></div>
@@ -373,47 +331,15 @@
         <button title="Terminal de tarefas" onclick="startTask('tesrminal_tarefacil.html')">Terminal de tarefas</button>
         <button title="Expande painel" class="toggle-nav3-button" >Expandir nav</button>
     </aside>
-
-
-
-    <div class="nav">
-        <div>
-          <button style="background-image: url('./imagem/adicionar-usuario.png'); background-size: 38px 35px;"></button>
-          <button style="background-image: url('./imagem/nome-do-usuario.png'); background-size: 38px 35px;"></button>
-          <div>
-          <label for="marcador">Colaboradores</label>
-          <select id="marcador" name="combobox1">
-            <option value="" disabled selected>Selecione</option>
-            <option value="1">Muriel Calixto</option>
-            <option value="2">Ralph Pireer</option>
-          </select>
-          </div>
-        </div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-   
-    </div>
-
-    
     
     
     <div id="modules-container" class="article" role="navigation">
-        <div id="desk" class="majormap" name="mapa"></div>
+        <div id="map" class="majormap" name="mapa"></div>
     </div>
-  
+    
     
     <nav class="nav3">
-        <div class="title">
-          <label ></label>
-          <button class="toggle-nav3-button">X</button>
-        </div>
+        nav
 
     </nav>
 
@@ -432,50 +358,10 @@ function toggleContrast() {
     }
 }
 
-function DeskMap(){
-
-        const map = L.map('desk').setView([-23.5184821, -47.8652909], 19); 
-
-        var iconGreen = L.icon({
-          iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
-          shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-          iconSize:    [38,65],
-          shadowSize:  [50,64],
-          iconAnchor:  [22,64],
-          shadowAnchor:[4,62],
-          popupAnchor: [-3,-76]
-        })
-
-        var iconRed = L.icon({
-          iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png',
-          shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-          iconSize:    [38,65],
-          shadowSize:  [50,64],
-          iconAnchor:  [22,64],
-          shadowAnchor:[4,62],
-          popupAnchor: [-3,-76]
-        })
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors',
-            maxZoom: 19
-        }).addTo(map);
-
-        L.marker([-23.5184821, -47.8652909],{icon:iconGreen}).addTo(map)
-            .bindPopup('<p>Lote    0001</p><p>Prefixo: SUZ-6247</p>')
-            .openPopup();
-        
-        L.marker([-23.5184821, -47.8641231],{icon:iconRed}).addTo(map)
-            .bindPopup('Localização do Lote 00020')
-            .openPopup();    
-}
-
-document.querySelectorAll('.toggle-nav3-button').forEach(but => {
-
-  but.addEventListener('click', function() {
+document.querySelector('.toggle-nav3-button').addEventListener('click', function() {
     const nav3 = document.querySelector('.nav3');
     const article = document.querySelector('.article');
-    
+  
     nav3.classList.toggle('expanded');
     
     // Ajustar o article para liberar espaço para o nav3
@@ -484,10 +370,7 @@ document.querySelectorAll('.toggle-nav3-button').forEach(but => {
     } else {
       article.style.marginRight = '0px';     // Quando o nav é recolhido, o article ocupa todo o espaço.
     }
-
-  })
-
-});
+  });
 </script>
 </body>
 </html>

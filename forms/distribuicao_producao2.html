@@ -31,16 +31,20 @@
 
 </div>
 
-<dialog id="myDialog" style="background-color: var(--bginput-color);">
+<dialog id="myDialog" style="background-color: var(--background-color); border:3px solid --bdcalendario-color;">
     <h2>Lancamento de Produção</h2>
     <p >Distribuição de produção para&nbsp; </p>
     <div id="dialogContent"></div>
         <form id="distribuicao-producao">
 
             <div class="form-group">
-                <label for="composicao-producao-genetica">Genética</label>
-                <input type="text" id="composicao-producao-genetica" name="genetica" placeholder="Informe a genética" required>
-            </div>  
+                <label for="composicao-producao-genetica">Genetica</label>
+                <select id="composicao-producao-genetica" name="genetica" placeholder="Selecione a genética" required>
+                    <option value="">Selecione</option>
+                    <option value="sp6947">sp6947</option>
+                    <option value="365">365</option>
+                </select>
+            </div>            
             
             <div class="form-group">
                 <label for="composicao-producao-total" >Meta total da produção</label>
@@ -56,6 +60,9 @@
 
             <div class="form-group">
                 <button type="button" style="background-color: green;width: 100%;" onclick="addtarefaproducao(document.getElementById('composicao-producao-total').value+'-'+document.getElementById('composicao-producao-genetica').value,document.getElementById('dialogContent').textContent);iniciarDragAndDrop();document.getElementById('myDialog').close()">adicionar</button>
+            </div>
+            <div class="form-group">
+                <button type="button" style="background-color: green;width: 100%;" onclick="document.getElementById('distribuicao-producao').reset() ;document.getElementById('myDialog').close()">Cancelar</button>
             </div>
 
         </form>

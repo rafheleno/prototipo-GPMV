@@ -209,6 +209,19 @@
 
 }
 
+.minimap{
+    width: 100%;
+    height: 300px;
+    border:1px solid black;
+}
+
+.majormap{
+
+    width: 100%;
+    height: 99%;
+    border:1px solid black;
+}
+
 
 
 
@@ -225,6 +238,12 @@
 
         width: 20%;
        
+    }
+
+    .close-window{
+
+        top: 0px;
+        left: 0px;
     }
 
 }

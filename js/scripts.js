@@ -129,6 +129,10 @@ function startTask(taskName,initializeFunction) {
 
 
 function initializeSlidersAndForm() {
+
+    
+
+    carregamap();
     const listContainer = document.getElementById('listContainer');
     const addRowButton = document.getElementById('addRow');
     const formMudas = document.getElementById('formMudas');
@@ -214,10 +218,7 @@ function updateAverages(results, listContainer) {
 
 function initializeColaboradoresForm() {
 
-    getallcolaborators()
-
-        
-
+    getallcolaborators();
     // Referência ao contêiner de plantões
     const plantoesContainer = document.getElementById('plantoesContainer');
     const addPlantaoButton = document.getElementById('addPlantaoButton');
@@ -252,6 +253,16 @@ function initializeColaboradoresForm() {
    
 }
 
+function initializeLotesForm(){
+
+    getallcolaboratorsOption('responsavel');
+
+    getallAtivosOption('localizacao')
+
+
+}
+
+
 function initializeAtivos(){
 
     getallativos()
@@ -276,7 +287,7 @@ function initializeTarefas(){
 function initializePlanproducoes(){
     iniciarDragAndDrop();
     getallcolaboratorsOption('producao-colaborador-origem')
-
+    //getFilteredtarefaOption('tarefasatrib','identificacaoLote',)
 }
 
 function inicitializePlanPlantoes(){
@@ -722,3 +733,80 @@ document.addEventListener('DOMContentLoaded', function () {
     inicializarCalendario('.calendario-container');
 });
 
+
+ 
+
+
+function carregamap(){
+
+        const map = L.map('map').setView([-23.5184821, -47.8652909], 20); 
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 23
+        }).addTo(map);
+
+        L.marker([-23.5184821, -47.8652909]).addTo(map)
+            .bindPopup('Localização do Lote 0001')
+            .openPopup();
+            
+}
+
+function rastrear(){
+
+    const alvo = {latitude:-23.518201, longitude: -47.864336};
+    let som = new Audio('https://soundjay.com/button/beep-07a.wav');
+    som.play();
+    
+    pingRater(alvo);
+
+}  
+
+function Geo_DistanceCalc(lt1, lg1, lt2, lg2){
+
+    const Earth_ray = 6271;
+
+    const Lattitude = tRadiane(lt2 - lat1);
+    const Longitude =  tRadiane(lg2 - lg1);
+    
+    const r = Math.sin(Lattitude/2) * Math.sin(Lattitude/2)+ Math.cos(tRadiane(lt1))*Math.cos(tRadiane(lt2)) *
+    Math.sin(Longitude/2) * Math.sin(Longitude/2);
+
+    const c = 2 * Math.atan2(Math.sqrt(r),Math.sqrt(1-a));
+    const distance = Earth_ray * c;
+    return distance
+}
+
+function tRadiane(deg){
+    return deg * (Math.PI/180);
+}
+
+function pingRater(target){
+
+    
+
+    if(navigator.geolocation){
+        alert(target);
+        navigator.geolocation.getCurrentPosition(function(position){
+            
+            const AtualLat = position.coords.latitude;
+            const AtualLong = position.coords.longitude;
+            alert(AtualLong);
+            const distancia = Geo_DistanceCalc(AtualLat,AtualLong,target.latitude,target.longitude);
+            alert(distancia);
+
+            if(distancia <= 0.5 ){    
+                som.play();
+                alert('Você esta próximo do objetivo');
+           }
+
+        })
+
+
+
+    }else{
+        alert("GPS não suportado!!")
+    }
+
+}
+//setInterval(pingRater,5000)

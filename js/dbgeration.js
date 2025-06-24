@@ -202,7 +202,7 @@ function saveDataAtivos() {
             "descricao"             : "Módulo para produção",
             "fotoAtivo"             : "",
             "dadosEspecificos": {
-                "areaModulo"        : 200,
+                "areaModulo"        : 2000,
                 "capacidadeModulo"  : 200,
                 "finalidadeModulo"  : "produção",
                 "placaVeiculo"      : "",
@@ -244,7 +244,7 @@ function saveDataAtivos() {
             "descricao"             : "Casa de sombra",
             "fotoAtivo"             : "",
             "dadosEspecificos": {
-                "areaModulo"        : 200,
+                "areaModulo"        : 2000,
                 "capacidadeModulo"  : 15000,
                 "finalidadeModulo"  : "produção",
                 "placaVeiculo"      : "",
@@ -265,7 +265,7 @@ function saveDataAtivos() {
             "descricao"             : "Modulo de rustificação",
             "fotoAtivo"             : "",
             "dadosEspecificos": {
-                "areaModulo"        : 200,
+                "areaModulo"        : 5000,
                 "capacidadeModulo"  : 30000,
                 "finalidadeModulo"  : "produção",
                 "placaVeiculo"      : "",
@@ -457,6 +457,8 @@ function saveDataBandejas() {
 
 */
 
+
+
 /* 
     Lotes de Produção
 */
@@ -469,6 +471,8 @@ function salvardataLote() {
             "responsavel"           : "Ana Santos",
             "localizacao"           : "Barracao de estaquia",
             "maximoItens"           : 50,
+            "latitude"              : 23.5184749,
+            "longitude"             : 47.8652919,
             "bandejas": [
                 { "id": "1000053", "genetica": "xr-6549", "dataProducao": "14/11/2024", "responsavel": "Gisele Coimbra" },
                 { "id": "1000054", "genetica": "xr-6549", "dataProducao": "14/11/2024", "responsavel": "Romualda Morgato" },
@@ -488,6 +492,8 @@ function salvardataLote() {
             "responsavel"           : "Ana Santos",
             "localizacao"           : "Modulo 1 - Casa de Sombra",
             "maximoItens"           : 40,
+            "latitude"              : 23.5184749,
+            "longitude"             : 47.8652919,
             "bandejas": [
                 { "id": "2012345", "genetica": "SP-367", "dataProducao": "14/11/2024" }
             ],

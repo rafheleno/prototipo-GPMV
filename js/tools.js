@@ -8,3 +8,4 @@ function diaSemana(data){
     return diasDaSemana[hoje.getDay()];
 
 }
+

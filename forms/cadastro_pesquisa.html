@@ -10,6 +10,27 @@
             <input type="date" id="dataPesquisa" name="dataPesquisa" required>
         </div>
         <div class="form-group">
+            <label for="pesquisa-lote">Lote</label>
+            <select id="pesquisa-lote" name="lote" required>
+                <option value="">Selecione</option>
+                <option value="00001">00001</option>
+                <option value="00002">00002</option>
+                <option value="00003">00003</option>
+                <option value="00004">00004</option>
+                <option value="00005">00005</option>
+                <option value="00006">00006</option>
+            </select>
+        </div>
+        
+        <div id="map" class="minimap" name="mapa">
+                
+        </div>
+
+        <div class="form-group">
+            <button id="maparaster" type="button" onclick="rastrear()">Rastrear</button>
+        </div> 
+
+        <div class="form-group">
             <label for="codigoQR">Código QR da Bandeja</label>
             <input type="text" id="codigoQR" name="codigoQR" placeholder="Insira o código QR da bandeja" required>
         </div>
