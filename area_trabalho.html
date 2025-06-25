@@ -164,7 +164,7 @@
     right: 0;
     background-color: var(--bdcalendario-color);
     width: 0;
-    overflow: hidden;
+    overflow: scroll;
     transition: width 0.3s ease;
     color: var(--texttitulo-color);
     font-size: 20px;
@@ -407,12 +407,7 @@
         <div>
           <button style="background-image: url('./imagem/adicionar-usuario.png'); background-size: cover;"></button>
           <button style="background-image: url('./imagem/nome-do-usuario.png'); background-size: cover;"></button>
-          <button style="background-image: url('./imagem/adicionar-usuario.png'); background-size: cover;"></button>
-          <button style="background-image: url('./imagem/nome-do-usuario.png'); background-size: cover;"></button>
-          <button style="background-image: url('./imagem/adicionar-usuario.png'); background-size: cover;"></button>
-          <button style="background-image: url('./imagem/nome-do-usuario.png'); background-size: cover;"></button>
-          <button style="background-image: url('./imagem/adicionar-usuario.png'); background-size: cover;"></button>
-          <button style="background-image: url('./imagem/nome-do-usuario.png'); background-size: cover;"></button>
+
 
           <div >
             <label for="marcador">Colaboradores</label>
@@ -438,14 +433,14 @@
     
     
     
-    <div id="modules-container" class="article" role="navigation">
+    <div id="modules-container1" class="article" role="navigation">
         <div id="desk" class="majormap" name="mapa"></div>
     </div>
   
     
-    <nav class="nav3">
+    <nav class="nav3" id="modules-container">
         <div class="title">
-          <label ></label>
+         
           <button class="toggle-nav3-button">X</button>
         </div>
 
@@ -506,6 +501,7 @@ function DeskMap(){
 
 document.querySelectorAll('.toggle-nav3-button').forEach(but => {
 
+  alert(document.querySelectorAll('.toggle-nav3-button').length);
   but.addEventListener('click', function() {
     const nav3 = document.querySelector('.nav3');
     const article = document.querySelector('.article');
