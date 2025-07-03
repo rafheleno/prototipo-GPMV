@@ -119,7 +119,7 @@ function startTask(taskName,initializeFunction) {
         fetch('forms/'+taskName)
             .then(response => response.text())
             .then(html => {
-                content.innerHTML += html;
+                content.innerHTML = html;
                 if(initializeFunction!=null){
                     initializeFunction();
                     
