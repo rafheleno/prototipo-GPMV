@@ -129,6 +129,12 @@
     flex-direction: column;
   }
 
+  .nav div p{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+  }
 
   .nav button{
     width: 47px;
@@ -145,16 +151,13 @@
   }
 
   .sidebar {
-
     grid-area: sidebar;
     background-color: var(--sidebar-color);
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    border-right: 2px solid var(--border-color);
-    width: 210px;
-    display: none;
     
+    border-right: 2px solid var(--border-color);
+    width: 0px;
   }
 
   .sidebar button {
@@ -183,7 +186,6 @@
   }
 
   .nav3{
-
     right: 0;
     background-color: var(--bdcalendario-color);
     width: 0;
@@ -194,7 +196,7 @@
   }
 
   .nav3.expanded {
-      width: 1520px;
+      width: 520px;
       border: 2px solid black;
     }
 
@@ -421,6 +423,7 @@
     <div class="nav">
 
         <div>
+          <p>Colaboradores</p>
           <button title="Colaboradores" onclick="startTask('cadastro_colaboradores.html',initializeColaboradoresForm)" style="background-image: url('./imagem/adiciona-usuario.png'); background-size: cover;"></button>
           <button style="background-image: url('./imagem/adicionar-tarefa-usuario.png'); background-size: cover;"></button>
           <button onclick="startTask('getsao_plantao.html',inicitializePlanPlantoes)" style="background-image: url('./imagem/calendario.png'); background-size: cover;" title="Planejamento de Plantões" ></button>
