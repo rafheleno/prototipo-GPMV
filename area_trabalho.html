@@ -8,9 +8,9 @@
 <title>Responsive Grid Interface</title>
 <style>
   :root {
-    --background-color: #d8eaff;
-    --sidebar-color: #c3e6cb;
-    --header-color: #e3f2fd;
+    --background-color: #f5f5f5;
+    --sidebar-color: #f5f5f5;
+    --header-color: #f5f5f5;
     --border-color: #ffffff;
     --text-color: #333333;
     --highlight-color: #ffff00;
@@ -21,7 +21,7 @@
     --btinput-color: #80AFC1;
     --bdcalendario-color: #5B849E;
     --bgTitulos-color: #5B849E;
-    --texttitulo-color: #ffffff;
+    --texttitulo-color: #1329ec;
     --texttituloHigh: #000000;
     --bgtask-color: #D99980;
     --diax-color: #F4A3A3;
@@ -54,8 +54,8 @@
     background-color: var(--background-color);
     color: var(--text-color);
     display: grid;
-    grid-template-rows: 40px 120px 1fr auto;
-    grid-template-columns: 250px 1fr auto;
+    grid-template-rows: 50px 120px 1fr auto;
+    grid-template-columns: auto 1fr auto;
     grid-template-areas: 
       "header header header"
       "rightside rightside rightside"
@@ -73,6 +73,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    border: 1px solid rgb(240, 234, 234);
     
 
   }
@@ -97,10 +98,20 @@
     gap: 4px;
     background-color:var(--sidebar-color);
     
+    
   }
 
+  .nav div:nth-child(1) {flex-grow: 1;}
+  .nav div:nth-child(2) {flex-grow: 3;}
+  .nav div:nth-child(3) {flex-grow: 1;}
+  .nav div:nth-child(4) {flex-grow: 1;}
+  .nav div:nth-child(5) {flex-grow: 1;}
+  .nav div:nth-child(6) {flex-grow: 1;}
+  .nav div:nth-child(7) {flex-grow: 1;}
+  
+  
   .nav div{
-    flex-grow: 0;
+    flex-grow: 1;
     flex-shrink: 0;
     flex-basis: 188px;  
     border-left: 1px solid rgb(204, 194, 194);
@@ -113,25 +124,37 @@
     
   }
 
+  .nav div div{
+    display: flex;
+    flex-direction: column;
+  }
+
+
   .nav button{
-    width: 19%;
-    height: 29%;
+    width: 47px;
+    height: 47px;
     border:none;
     background-color: transparent;
+    margin-left: 3px;
+    
   }
 
   .nav select{
     font-size: medium;
+    height: 33px;
   }
 
   .sidebar {
+
     grid-area: sidebar;
     background-color: var(--sidebar-color);
     display: flex;
     flex-direction: column;
     padding: 20px;
     border-right: 2px solid var(--border-color);
-    width: 250px;
+    width: 210px;
+    display: none;
+    
   }
 
   .sidebar button {
@@ -171,7 +194,7 @@
   }
 
   .nav3.expanded {
-      width: 520px;
+      width: 1520px;
       border: 2px solid black;
     }
 
@@ -267,16 +290,13 @@
 
   @media (max-width: 800px) {
     body {
-      grid-template-rows: 150 auto auto;
-      grid-template-columns: auto;
-      grid-template-areas: 
-        "header"
-        "rightside"
-        "sidebar"
-        "article"; 
-            
+        grid-template-rows: 100px 170px auto;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+          "header"
+          "rightside"
+          "article";
     }
-
     header {
       flex-direction: column;
     }
@@ -299,39 +319,42 @@
       overflow-x: auto;
       flex-direction: row;
       max-height: 100px;
+      display: none;
     }
 
-    .sidebar button {
-        background-color: var(--background-color);
-        border: 1px solid var(--border-color);
-        color: var(--text-color);
-        font-weight: bold;
-        font-size: 18px;
-        margin: 3px;
-        padding: 20px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        white-space: pre-wrap;
-        min-width: 200px;
-        max-width: 400px;
-        max-height: 100px;
-        
-    }
 
-    .nav3{
-        display: none;
-    } 
-    
+
+
+  .article {
+    grid-area: article;
+    width: 100%;
+  }
+
+  .article.hidden {
+    display: none !important;
+  }
+
+  .nav3 {
+    display: none;
+  }
+
+  .nav3.expanded {
+    display: block !important;
+    grid-area: article !important; /* substitui o article */
+    width: 100% !important;
+    height: auto;
+  }
+ 
     .nav {
         overflow-x: scroll;
     }
 
-    .nav div{
-      width:200px;  
+    .nav > div{
+   
       border-left: 1px solid black;
-      box-sizing: border-box;
-      gap: 10px;
+      flex-grow: 2;
     }
+
 
 
     .module {
@@ -355,12 +378,6 @@
 
     }
 
-    .article {
-      gap: 10px;
-      padding: 0%;
-     
-    }
-
     .TitleHigh{
         font-size: 15px;
         font-weight:unset;
@@ -379,8 +396,8 @@
     <header role="navigation">
         <a href="" style="color: var(--texttituloHigh);" title="Clique para adicionar repositorio de dados"  onclick="saveDataColaboradores(); saveDataAtivos(); saveDataBandejas(); salvardataLote(); salvardatatarefa()">Gerador registro</a>
         <div class="header-section"></div>
-        <div class="header-section"><p class="TitleHigh">Gerenciamento de logistica sobre produção de mudas em viveiro</p></div>
-        <div class="header-section"></div>
+        <div class="header-section"><p class="TitleHigh">Gerenciamento Logistico Geolocalizado</p></div>
+        <div class="header-section"><img src="./imagem/imagem-do-usuario-com-fundo-preto.png" width="32" height="32">Usuario</div>
         <div class="header-section" style="width: 80px;">
         <a href="#" style="color: var(--texttituloHigh);" onclick="toggleContrast()">Alto Contraste</a>
         
@@ -388,7 +405,7 @@
     </header>
 
     <aside class="sidebar" role="navigation">
-        <button title="Colaboradores" onclick="startTask('cadastro_colaboradores.html',initializeColaboradoresForm)">Colaboradores</button>
+        <!--button title="Colaboradores" onclick="startTask('cadastro_colaboradores.html',initializeColaboradoresForm)">Colaboradores</button>
         <button title="Cadastro de Ativos" onclick="startTask('cadastro_ativos.html',initializeAtivos)">Ativos</button>
         <button title="Cadastro de Bandeija" onclick="startTask('cadastro_bandeja.html')">Bandejas</button>
         <button title="Lotes de produtos" onclick="startTask('cadastro_lotes.html',initializeLotesForm)">Lotes</button>
@@ -398,36 +415,65 @@
         <button title="Terminal para apontamento" onclick="startTask('leitor_qrcode.html',loadQRCodeScript)">Terminal de apontamento</button>
         <button title="planejar produção" onclick="startTask('distribuicao_producao2.html',inicializeCalendario)">Planejamento de produção</button>
         <button title="Terminal de tarefas" onclick="startTask('tesrminal_tarefacil.html')">Terminal de tarefas</button>
-        <button title="Expande painel" class="toggle-nav3-button" >Expandir nav</button>
+        <button title="Expande painel" class="toggle-nav3-button" >Expandir nav</button-->
     </aside>
 
-
-
     <div class="nav">
+
         <div>
-          <button style="background-image: url('./imagem/adicionar-usuario.png'); background-size: cover;"></button>
-          <button style="background-image: url('./imagem/nome-do-usuario.png'); background-size: cover;"></button>
-
-
-          <div >
+          <button title="Colaboradores" onclick="startTask('cadastro_colaboradores.html',initializeColaboradoresForm)" style="background-image: url('./imagem/adiciona-usuario.png'); background-size: cover;"></button>
+          <button style="background-image: url('./imagem/adicionar-tarefa-usuario.png'); background-size: cover;"></button>
+          <button onclick="startTask('getsao_plantao.html',inicitializePlanPlantoes)" style="background-image: url('./imagem/calendario.png'); background-size: cover;" title="Planejamento de Plantões" ></button>
+          <button onclick="startTask('tesrminal_tarefacil.html')" style="background-image: url('./imagem/realidade-virtual.png'); background-size: cover;" title="Terminal de Tarefas" ></button>
+          <!--div >
             <label for="marcador">Colaboradores</label>
             <select id="marcador" name="combobox1">
               <option value="" disabled selected>Selecione</option>
               <option value="1">Muriel Calixto</option>
               <option value="2">Ralph Pireer</option>
             </select>
-          </div>
+          </div-->
         </div>
+
+
+        <div>
+          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(2))" style="background-image: url('./imagem/addtrator.png'); background-size: cover;" title="Adiciona veiculos"></button> 
+          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(3))" style="background-image: url('./imagem/adiciona-reboque.png'); background-size: cover;" title="Adicona reboques" ></button>
+          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(1))" style="background-image: url('./imagem/adiciona-modulo.png'); background-size: cover;" title="Adicona módulos" ></button>
+          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(4))" style="background-image: url('./imagem/adicionar-infraestrutura.png'); background-size: cover;" title="adiciona infra-estrutura" ></button>
+          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(5))" style="background-image: url('./imagem/adiciona-deposito.png'); background-size: cover;" title="Adiciona depósito" ></button>
+          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(6))" style="background-image: url('./imagem/adiciona-maquina.png'); background-size: cover;" title="Adiciona Maquina" ></button>
+
+        </div>
+
+        <div>
+          <button onclick="startTask('distribuicao_producao2.html',inicializeCalendario)" style="background-image: url('./imagem/calendario.png'); background-size: cover;" title="Planejamento de produção" ></button>
+          <button onclick="startTask('cadastro_tarefa.html',initializeTarefas)" style="background-image: url('./imagem/tarefa.png'); background-size: cover;" title="Atribuir tarefa" ></button>
+          
+
+          
+        </div>
+
+        <div>
+          <button style="background-image: url('./imagem/adicionar-rotas.png'); background-size: cover;" title="Adiciona Marcador" ></button>
+          <button style="background-image: url('./imagem/localizacao.png'); background-size: cover;" title="Adiciona ponto de localização" ></button>
+          <button style="background-image: url('./imagem/rotas.png'); background-size: cover;" title="Converter em rota" ></button>
+          <button style="background-image: url('./imagem/metrica.png'); background-size: cover;" title="Medidas de marcações" ></button>
+
+        </div>
+
+
+        <div>
+          <button onclick="startTask('cadastro_pesquisa.html',initializeSlidersAndForm)" style="background-image: url('./imagem/pesquisa.png'); background-size: cover;" title="Agendar Pesquisa de acompanhamento" ></button>
+        </div>
+        <div>
+          <button onclick="startTask('cadastro_bandeja.html')" style="background-image: url('./imagem/bandeija-ligada.png'); background-size: cover;" title="Agendar Pesquisa de acompanhamento" ></button>
+          <button style="background-image: url('./imagem/baindeija-desligada.png'); background-size: cover;" title="Agendar Pesquisa de acompanhamento" ></button>
+          <button onclick="startTask('cadastro_lotes.html',initializeLotesForm)" style="background-image: url('./imagem/lote.png'); background-size: cover;" title="Agendar Pesquisa de acompanhamento" ></button>
+        </div>
+
         <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-   
+        
     </div>
 
     
@@ -439,10 +485,7 @@
   
     
     <nav class="nav3" id="modules-container">
-        <div class="title">
-         
-          <button class="toggle-nav3-button">X</button>
-        </div>
+
 
     </nav>
 
@@ -455,9 +498,9 @@
 function toggleContrast() {
     const body = document.body;
     if (body.hasAttribute('data-theme')) {
-    body.removeAttribute('data-theme');
+      body.removeAttribute('data-theme');
     } else {
-    body.setAttribute('data-theme', 'high-contrast');
+      body.setAttribute('data-theme', 'high-contrast');
     }
 }
 
@@ -466,9 +509,8 @@ function DeskMap(){
         const map = L.map('desk').setView([-23.5184821, -47.8652909], 19); 
 
         var iconGreen = L.icon({
-          iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
-          shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-          iconSize:    [38,65],
+          iconUrl: '../imagem/muda.png',
+          iconSize:    [38,38],
           shadowSize:  [50,64],
           iconAnchor:  [22,64],
           shadowAnchor:[4,62],
@@ -476,14 +518,21 @@ function DeskMap(){
         })
 
         var iconRed = L.icon({
-          iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png',
-          shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-          iconSize:    [38,65],
+          iconUrl: '../imagem/muda.png',
+          iconSize:    [38,38],
           shadowSize:  [50,64],
           iconAnchor:  [22,64],
           shadowAnchor:[4,62],
           popupAnchor: [-3,-76]
         })
+
+        var iconMarker = L.icon({
+          iconUrl: '../imagem/ponto-de-pin.png',
+          iconSize:    [32,32],
+          iconAnchor:  [16,32],
+          popupAnchor: [-3,-76]
+        })        
+        
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors',
@@ -494,30 +543,48 @@ function DeskMap(){
             .bindPopup('<p>Lote    0001</p><p>Prefixo: SUZ-6247</p>')
             .openPopup();
         
-        L.marker([-23.5184821, -47.8641231],{icon:iconRed}).addTo(map)
+        L.marker([-23.5164821, -47.8641231],{icon:iconRed}).addTo(map)
             .bindPopup('Localização do Lote 00020')
-            .openPopup();    
+            .openPopup(); 
+            
+        map.on('click', (event)=> {
+        
+          // criando o evento click para criar marcadores
+
+          L.marker(event.latlng,{icon:iconMarker}).addTo(map)
+          .on('mouseover',(e)=>{
+            e.target.bindPopup('content').openPopup();
+          })
+          .on('mouseout',(e)=>{
+            e.target.closePopup()
+          })
+          .on('click',(e)=>{
+            e.target.remove();
+          })
+              
+      });
 }
 
 document.querySelectorAll('.toggle-nav3-button').forEach(but => {
 
-  alert(document.querySelectorAll('.toggle-nav3-button').length);
-  but.addEventListener('click', function() {
+  but.addEventListener('click',abaLateral )
+});
+
+function abaLateral(){
     const nav3 = document.querySelector('.nav3');
     const article = document.querySelector('.article');
-    
+    const isMobile = window.innerWidth <= 800;
+
     nav3.classList.toggle('expanded');
-    
-    // Ajustar o article para liberar espaço para o nav3
-    if (nav3.classList.contains('expanded')) {
-      article.style.marginRight = '0px';  // Quando o nav se expande, o article cede espaço.
-    } else {
-      article.style.marginRight = '0px';     // Quando o nav é recolhido, o article ocupa todo o espaço.
+
+    if (isMobile) {
+        if (nav3.classList.contains('expanded')) {
+          article.classList.add('hidden');   // esconde o article
+        } else {
+          article.classList.remove('hidden'); // mostra o article de novo
+        }
     }
-
-  })
-
-});
+}
 </script>
 </body>
 </html>

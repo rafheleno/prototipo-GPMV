@@ -28,10 +28,13 @@ function toggleID(idtarget){
 
 
 }
+
+
 function closeID(idtarget){
 
     const targetId = document.getElementById(idtarget);
     if(targetId) targetId.remove();
+    abaLateral();
 
 }
 
@@ -119,11 +122,11 @@ function startTask(taskName,initializeFunction) {
                 content.innerHTML += html;
                 if(initializeFunction!=null){
                     initializeFunction();
+                    
                 }
+                abaLateral();
             });
     
-    
-            
 }
 
 
@@ -216,39 +219,15 @@ function updateAverages(results, listContainer) {
     ).toFixed(2);
 }
 
-function initializeColaboradoresForm() {
+function initializeColaboradoresForm(troggleStateByclass) {
 
     getallcolaborators();
     // Referência ao contêiner de plantões
     const plantoesContainer = document.getElementById('plantoesContainer');
-    const addPlantaoButton = document.getElementById('addPlantaoButton');
+    
     const submitButton = document.getElementById('submitColaboradorForm');
 
-    // Adicionar novo plantão
-    addPlantaoButton.addEventListener('click', () => {
-        const newPlantao = document.createElement('div');
-        newPlantao.classList.add('plantao-form');
-        newPlantao.innerHTML = `
-            <label for="dataPlantao">Data do Plantão:</label>
-            <input type="date" class="dataPlantao" required>
-            
-            <label for="setor">Setor</label>
-            <select id="setor" name="setor" required>
-            <option value="" disabled selected>Selecione o setor</option>                            
-            <option value="plantio">Plantio</option>
-            <option value="apoio">Apoio</option>
-            <option value="distribuicao">Distribuição</option>
-            <option value="irrigação">Irrigação</option>
-            <option value="tratorista">Tratorista</option>
-            <option value="operador">Operador de maquina</option>
-            <option value="manejo1">Manejo - Abertura</option>
-            <option value="manejo2">Manejo - Seleção</option>
-            <option value="manejo3">Manejo - Expedição</option>
-            <option value="estiva">Carregamento</option>
-            </select>
-            `;
-        plantoesContainer.appendChild(newPlantao);
-    });
+    
 
    
 }
@@ -263,7 +242,11 @@ function initializeLotesForm(){
 }
 
 
-function initializeAtivos(){
+function initializeAtivos(opcao){
+
+    const e = document.getElementById('ativo-tipoAtivo');
+    e.selectedIndex = opcao;
+    e.disabled =true;
 
     getallativos()
 
