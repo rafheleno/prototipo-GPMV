@@ -133,6 +133,10 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px rgb(74, 72, 72);
     
   }
 
@@ -407,17 +411,7 @@
     </header>
 
     <aside class="sidebar" role="navigation">
-        <!--button title="Colaboradores" onclick="startTask('cadastro_colaboradores.html',initializeColaboradoresForm)">Colaboradores</button>
-        <button title="Cadastro de Ativos" onclick="startTask('cadastro_ativos.html',initializeAtivos)">Ativos</button>
-        <button title="Cadastro de Bandeija" onclick="startTask('cadastro_bandeja.html')">Bandejas</button>
-        <button title="Lotes de produtos" onclick="startTask('cadastro_lotes.html',initializeLotesForm)">Lotes</button>
-        <button title="Acompanhamento Pesquisa" onclick="startTask('cadastro_pesquisa.html',initializeSlidersAndForm)">Pesquisa e acompanhamento</button>
-        <button title="Adicionar tarefa não agregada" onclick="startTask('cadastro_tarefa.html',initializeTarefas)">Criar tarefa</button>
-        <button title="Gestão de plantões" onclick="startTask('getsao_plantao.html',inicitializePlanPlantoes)">Planejamento de plantões</button>
-        <button title="Terminal para apontamento" onclick="startTask('leitor_qrcode.html',loadQRCodeScript)">Terminal de apontamento</button>
-        <button title="planejar produção" onclick="startTask('distribuicao_producao2.html',inicializeCalendario)">Planejamento de produção</button>
-        <button title="Terminal de tarefas" onclick="startTask('tesrminal_tarefacil.html')">Terminal de tarefas</button>
-        <button title="Expande painel" class="toggle-nav3-button" >Expandir nav</button-->
+       
     </aside>
 
     <div class="nav">
@@ -428,50 +422,44 @@
           <button style="background-image: url('./imagem/adicionar-tarefa-usuario.png'); background-size: cover;"></button>
           <button onclick="startTask('getsao_plantao.html',inicitializePlanPlantoes)" style="background-image: url('./imagem/calendario.png'); background-size: cover;" title="Planejamento de Plantões" ></button>
           <button onclick="startTask('tesrminal_tarefacil.html')" style="background-image: url('./imagem/realidade-virtual.png'); background-size: cover;" title="Terminal de Tarefas" ></button>
-          <!--div >
-            <label for="marcador">Colaboradores</label>
-            <select id="marcador" name="combobox1">
-              <option value="" disabled selected>Selecione</option>
-              <option value="1">Muriel Calixto</option>
-              <option value="2">Ralph Pireer</option>
-            </select>
-          </div-->
         </div>
 
 
         <div>
+          <p>Ativos</p>
           <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(2))" style="background-image: url('./imagem/addtrator.png'); background-size: cover;" title="Adiciona veiculos"></button> 
           <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(3))" style="background-image: url('./imagem/adiciona-reboque.png'); background-size: cover;" title="Adicona reboques" ></button>
           <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(1))" style="background-image: url('./imagem/adiciona-modulo.png'); background-size: cover;" title="Adicona módulos" ></button>
           <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(4))" style="background-image: url('./imagem/adicionar-infraestrutura.png'); background-size: cover;" title="adiciona infra-estrutura" ></button>
           <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(5))" style="background-image: url('./imagem/adiciona-deposito.png'); background-size: cover;" title="Adiciona depósito" ></button>
           <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(6))" style="background-image: url('./imagem/adiciona-maquina.png'); background-size: cover;" title="Adiciona Maquina" ></button>
-
         </div>
 
         <div>
+          <p>Tarefa</p>
           <button onclick="startTask('distribuicao_producao2.html',inicializeCalendario)" style="background-image: url('./imagem/calendario.png'); background-size: cover;" title="Planejamento de produção" ></button>
           <button onclick="startTask('cadastro_tarefa.html',initializeTarefas)" style="background-image: url('./imagem/tarefa.png'); background-size: cover;" title="Atribuir tarefa" ></button>
-          
-
-          
         </div>
 
         <div>
+          <p>Marcadores</p>
           <button style="background-image: url('./imagem/adicionar-rotas.png'); background-size: cover;" title="Adiciona Marcador" ></button>
           <button style="background-image: url('./imagem/localizacao.png'); background-size: cover;" title="Adiciona ponto de localização" ></button>
           <button style="background-image: url('./imagem/rotas.png'); background-size: cover;" title="Converter em rota" ></button>
           <button style="background-image: url('./imagem/metrica.png'); background-size: cover;" title="Medidas de marcações" ></button>
-
         </div>
 
 
         <div>
-          <button onclick="startTask('cadastro_pesquisa.html',initializeSlidersAndForm)" style="background-image: url('./imagem/pesquisa.png'); background-size: cover;" title="Agendar Pesquisa de acompanhamento" ></button>
+          <p>Pesquisa</p>
+          <button onclick="startTask('cadastro_pesquisa.html')" style="background-image: url('./imagem/pesquisa.png'); background-size: cover;" title="Agendar Pesquisa de acompanhamento" ></button>
         </div>
+
+
         <div>
+          <p>Itens de Produção</p>
           <button onclick="startTask('cadastro_bandeja.html')" style="background-image: url('./imagem/bandeija-ligada.png'); background-size: cover;" title="Agendar Pesquisa de acompanhamento" ></button>
-          <button style="background-image: url('./imagem/baindeija-desligada.png'); background-size: cover;" title="Agendar Pesquisa de acompanhamento" ></button>
+          
           <button onclick="startTask('cadastro_lotes.html',initializeLotesForm)" style="background-image: url('./imagem/lote.png'); background-size: cover;" title="Agendar Pesquisa de acompanhamento" ></button>
         </div>
 
