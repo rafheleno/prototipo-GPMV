@@ -43,6 +43,8 @@ function toggleID(idtarget){
 }
 
 
+
+
 function closeID(idtarget){
 
     const targetId = document.getElementById(idtarget);
@@ -735,7 +737,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function carregamap(){
 
-        const map = L.map('map').setView([-23.5184821, -47.8652909], 20); 
+        //const map = L.map('map').setView([-23.5184821, -47.8652909], 20); 
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors',

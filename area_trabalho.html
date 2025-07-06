@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 <title>Responsive Grid Interface</title>
 <style>
   :root {
@@ -113,7 +114,7 @@
   .nav div{
     flex-grow: 1;
     flex-shrink: 0;
-    flex-basis: 188px;  
+    flex-basis: 190px;  
     border-left: 1px solid rgb(204, 194, 194);
     box-sizing: border-box;
     gap:4px;
@@ -141,10 +142,12 @@
   }
 
   .nav button{
-    width: 47px;
-    height: 47px;
+    width: 13%;
+    height: 36%;
     border:none;
     background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
     margin-left: 3px;
   }
 
@@ -394,11 +397,11 @@
 
 <script src="./js/dbgeration.js"></script>
 </head>
-<body onload="DeskMap()" >
+<body onload="DeskMap(); busCador('Suzano Papel e Celulose Alambari-sp')" >
 
     <header role="navigation">
-        <a href="" style="color: var(--texttituloHigh);" title="Clique para adicionar repositorio de dados"  onclick="saveDataColaboradores(); saveDataAtivos(); saveDataBandejas(); salvardataLote(); salvardatatarefa()">Gerador registro</a>
-        <div class="header-section"></div>
+        <a href="" style="color: var(--texttituloHigh);" title="Clique para adicionar repositorio de dados"  onclick="saveDataColaboradores(); saveDataAtivos(); saveDataBandejas(); salvardataLote(); salvardatatarefa()">GR</a>
+        <div class="header-section">CNPJ: 00.000.000/00001-00</div>
         <div class="header-section"><p class="TitleHigh">Gerenciamento Logistico Geolocalizado</p></div>
         <div class="header-section" id="usuariosessao"><img src="./imagem/imagem-do-usuario-com-fundo-preto.png" width="32" height="32"></div>
         <div class="header-section" style="width: 80px;">
@@ -415,52 +418,56 @@
 
         <div>
           <p>Colaboradores</p>
-          <button title="Colaboradores" onclick="startTask('cadastro_colaboradores.html',initializeColaboradoresForm)" style="background-image: url('./imagem/adiciona-usuario.png'); background-size: cover;"></button>
-          <button style="background-image: url('./imagem/adicionar-tarefa-usuario.png'); background-size: cover;"></button>
-          <button onclick="startTask('getsao_plantao.html',inicitializePlanPlantoes)" style="background-image: url('./imagem/calendario.png'); background-size: cover;" title="Planejamento de Plantões" ></button>
-          <button onclick="startTask('tesrminal_tarefacil.html')" style="background-image: url('./imagem/realidade-virtual.png'); background-size: cover;" title="Terminal de Tarefas" disabled ></button>
+          <button title="Colaboradores" onclick="startTask('cadastro_colaboradores.html',initializeColaboradoresForm)" style="background-image: url('./imagem/adiciona-usuario.png');  "></button>
+          <button style="background-image: url('./imagem/adicionar-tarefa-usuario.png');  "></button>
+          <button onclick="startTask('getsao_plantao.html',inicitializePlanPlantoes)" style="background-image: url('./imagem/calendario.png');  " title="Planejamento de Plantões" ></button>
+          <button onclick="startTask('tesrminal_tarefacil.html')" style="background-image: url('./imagem/realidade-virtual.png');  " title="Terminal de Tarefas" ></button>
         </div>
 
 
         <div>
           <p>Ativos</p>
-          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(2))" style="background-image: url('./imagem/addtrator.png'); background-size: cover;" title="Adiciona veiculos"></button> 
-          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(3))" style="background-image: url('./imagem/adiciona-reboque.png'); background-size: cover;" title="Adicona reboques" ></button>
-          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(1))" style="background-image: url('./imagem/adiciona-modulo.png'); background-size: cover;" title="Adicona módulos" ></button>
-          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(4))" style="background-image: url('./imagem/adicionar-infraestrutura.png'); background-size: cover;" title="adiciona infra-estrutura" ></button>
-          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(5))" style="background-image: url('./imagem/adiciona-deposito.png'); background-size: cover;" title="Adiciona depósito" ></button>
-          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(6))" style="background-image: url('./imagem/adiciona-maquina.png'); background-size: cover;" title="Adiciona Maquina" ></button>
+          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(2))" style="background-image: url('./imagem/addtrator.png');  " title="Adiciona veiculos"></button> 
+          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(3))" style="background-image: url('./imagem/adiciona-reboque.png');  " title="Adicona reboques" ></button>
+          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(1))" style="background-image: url('./imagem/adiciona-modulo.png');  " title="Adicona módulos" ></button>
+          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(4))" style="background-image: url('./imagem/adicionar-infraestrutura.png');  " title="adiciona infra-estrutura" ></button>
+          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(5))" style="background-image: url('./imagem/adiciona-deposito.png');  " title="Adiciona depósito" ></button>
+          <button onclick="startTask('cadastro_ativos.html',() => initializeAtivos(6))" style="background-image: url('./imagem/adiciona-maquina.png');  " title="Adiciona Maquina" ></button>
         </div>
 
         <div>
           <p>Tarefa</p>
-          <button onclick="startTask('distribuicao_producao2.html',inicializeCalendario)" style="background-image: url('./imagem/calendario.png'); background-size: cover;" title="Planejamento de produção" ></button>
-          <button onclick="startTask('cadastro_tarefa.html',initializeTarefas)" style="background-image: url('./imagem/tarefa.png'); background-size: cover;" title="Atribuir tarefa" ></button>
+          <button onclick="startTask('distribuicao_producao2.html',inicializeCalendario)" style="background-image: url('./imagem/calendario.png');  " title="Planejamento de produção" ></button>
+          <button onclick="startTask('cadastro_tarefa.html',initializeTarefas)" style="background-image: url('./imagem/tarefa.png');  " title="Atribuir tarefa" ></button>
         </div>
 
         <div>
           <p>Marcadores</p>
-          <button id="btn_addmarcador" onclick="disableByclass('button','nav',this)" style="background-image: url('./imagem/adicionar-rotas.png'); background-size: cover;" title="Adiciona Marcador"></button>
-          <button style="background-image: url('./imagem/localizacao.png'); background-size: cover;" title="Adiciona ponto de localização" ></button>
-          <button style="background-image: url('./imagem/rotas.png'); background-size: cover;" title="Converter em rota" ></button>
-          <button style="background-image: url('./imagem/metrica.png'); background-size: cover;" title="Medidas de marcações" ></button>
+          <button id="btn_addmarcador" onclick="disableByclass('button','nav',this); toggleMarker();" style="background-image: url('./imagem/adicionar-rotas.png');" title="Adiciona Marcador"></button>
+          <button style="background-image: url('./imagem/localizacao.png');  " title="Adiciona ponto de localização" ></button>
+          <button style="background-image: url('./imagem/rotas.png');  " title="Converter em rota" ></button>
+          <button style="background-image: url('./imagem/metrica.png');  " title="Medidas de marcações" ></button>
         </div>
 
 
         <div>
           <p>Pesquisa</p>
-          <button onclick="startTask('cadastro_pesquisa.html')" style="background-image: url('./imagem/pesquisa.png'); background-size: cover;" title="Agendar Pesquisa de acompanhamento" ></button>
+          <button onclick="startTask('cadastro_pesquisa.html')" style="background-image: url('./imagem/pesquisa.png');  " title="Agendar Pesquisa de acompanhamento" ></button>
         </div>
 
 
         <div>
           <p>Itens de Produção</p>
-          <button onclick="startTask('cadastro_bandeja.html')" style="background-image: url('./imagem/bandeija-ligada.png'); background-size: cover;" title="Agendar Pesquisa de acompanhamento" ></button>
-          
-          <button onclick="startTask('cadastro_lotes.html',initializeLotesForm)" style="background-image: url('./imagem/lote.png'); background-size: cover;" title="Agendar Pesquisa de acompanhamento" ></button>
+          <button onclick="startTask('cadastro_bandeja.html')" style="background-image: url('./imagem/bandeija-ligada.png');  " title="Agendar Pesquisa de acompanhamento" ></button>
+          <button onclick="startTask('cadastro_lotes.html',initializeLotesForm)" style="background-image: url('./imagem/lote.png');  " title="Agendar Pesquisa de acompanhamento" ></button>
         </div>
 
-        <div></div>
+        <div>
+          <p>Buscador</p>
+          <input type="text" id="mapsearch">
+          <button onclick=" busCador(document.getElementById('mapsearch').value)" style="width: 25px; border:2px solid black">ir</button>
+
+        </div>
         
     </div>
 
@@ -485,6 +492,8 @@
 <script>
 
 var mapElemento = [];
+var marker = false;
+const map = L.map('desk').setView([0, 0], 17); 
 
 function toggleContrast() {
     const body = document.body;
@@ -495,15 +504,35 @@ function toggleContrast() {
     }
 }
 
+function toggleMarker() {
+      marker = !marker;
+}
+
+async function busCador(local){
+
+        const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(local)}`;
+        const response = await fetch(url);
+        const dados = await response.json();
+        var lat = 0
+        var lon = 0
+        
+        if (dados.length > 0) {
+          lat = dados[0].lat;
+          lon = dados[0].lon;
+        }else{
+          lat = -23.5184821;
+          lon = -47.8652909;
+        }  
+
+        map.setView([lat, lon], 17); 
+}
+
 function DeskMap(){
 
         const params = new URLSearchParams(window.location.search);
         const nome = params.get("email");
 
         document.getElementById('usuariosessao').innerHTML += nome
-
-
-        const map = L.map('desk').setView([-23.5184821, -47.8652909], 17); 
 
         var iconGreen = L.icon({
           iconUrl: './imagem/muda.png',
@@ -551,43 +580,72 @@ function DeskMap(){
         }).addTo(map);
 
         L.marker([-23.5184821, -47.8652909],{icon:iconGreen}).addTo(map)
-            .bindPopup('<p>Lote    0001</p><p>Prefixo: SUZ-6247</p>')
-            .openPopup();
+            .on('mouseover',(e)=>{
+              e.target.bindPopup('<p>Lote:00003</p><p>Genetica: 6247</p><p>Estagio: 30%</p>').openPopup();
+            })
+            .on('mouseout',(e)=>{
+              e.target.closePopup()
+            })
+            
 
         L.marker([-23.5174821, -47.8651509],{icon:iconMachie}).addTo(map)
-            .bindPopup('<p>Trator Massey Ferguson</p><p>Tempo de uso: 326hrs</p><p>Condutor: João monomo</p><p>Destino:Casa de sombra n.3</p>')
-            .openPopup();   
+            .on('mouseover',(e)=>{
+              e.target.bindPopup('<p>Ativo:Trator Massey Ferguson</p><p>Tempo de uso: 326hrs</p><p>Condutor: João monomo</p><p>Destino:Casa de sombra n.3</p>').openPopup();
+            })
+            .on('mouseout',(e)=>{
+              e.target.closePopup()
+            })
+            .on('click',(e) => {
+              autoFillativos(e)
+            })    
 
         L.marker([-23.5174821, -47.8651909],{icon:iconAgregado}).addTo(map)
-            .bindPopup('<p>Reboque de lotes</p>')
-            .openPopup();           
+            .on('mouseover',(e)=>{
+              e.target.bindPopup('<p>Ativo:Reboque de lotes</p><p>Carga: Lote-004993</p>').openPopup();
+            })
+            .on('mouseout',(e)=>{
+              e.target.closePopup()
+            })
+            .on('click',(e) => {
+              autoFillativos(e)
+            })          
         
         L.marker([-23.5164821, -47.8641231],{icon:iconRed}).addTo(map)
-            .bindPopup('Localização do Lote 00020')
-            .openPopup(); 
+            .on('mouseover',(e)=>{
+              e.target.bindPopup('<p>Lote:00004</p><p>Genetica: 6247</p><p>Estagio: 30%</p>').openPopup();
+            })
+            .on('mouseout',(e)=>{
+              e.target.closePopup()
+            })
+            .on('click', (e)=>{
+
+              autoFilllotes(e);
+            })
+
             
         map.on('click', (event)=> {
         
           // criando o evento click para criar marcadores
-          mapElemento.push()
-          L.marker(event.latlng,{icon:iconMarker}).addTo(map)
-          .on('mouseover',(e)=>{
-            e.target.bindPopup('content').openPopup();
-          })
-          .on('mouseout',(e)=>{
-            e.target.closePopup()
-          })
-          .on('click',(e)=>{
-          })
-          .on('click',(e)=>{
-            e.target.remove();
-          })
-              
+          if(marker){
+            L.marker(event.latlng,{icon:iconMarker}).addTo(map)
+            .on('mouseover',(e)=>{
+              e.target.bindPopup('content').openPopup();
+            })
+            .on('mouseout',(e)=>{
+              e.target.closePopup()
+            })
+            .on('click',(e)=>{
+              if(marker){
+                e.target.remove();
+              }  
+            })
+          } 
       });
+
+      
 }
 
 document.querySelectorAll('.toggle-nav3-button').forEach(but => {
-
   but.addEventListener('click',abaLateral )
 });
 
@@ -604,6 +662,52 @@ function abaLateral(){
         } else {
           article.classList.remove('hidden'); // mostra o article de novo
         }
+    }
+
+}
+
+function autoFilllotes(e){
+
+    if(document.querySelector('#lote').length>0){
+
+      const idLote =  document.querySelector('#lote')
+
+      // separando o numero do lote na label 
+      const regex = /(?<=Lote:\s*)\d+/i;
+      const conteudo = e.target.getPopup().getContent();
+      const j = conteudo.match(regex);
+      if (j && j.length > 0) {
+        existLote = Array.from(idLote.options).some(o => o.value === j[0].trim());
+        if(!existLote){
+          alert("Lote inexistente, necessário cadastrar");
+        }else{
+          idLote.value = j
+        }
+      }
+
+    }
+}
+
+function autoFillativos(e){
+
+    if(document.querySelector('#ativo').length>0){
+
+      const idAtivo =  document.querySelector('#ativo')
+
+      // separando o numero do lote na label 
+      const regex = /(?<=Ativo:\s*)[^<]+/i;
+      const conteudo = e.target.getPopup().getContent();
+      const j = conteudo.match(regex);
+      alert(j);
+     if (j && j.length > 0) {
+        existLote = Array.from(idAtivo).some(o => o.value === j[0].trim());
+
+        if(!existLote){
+          alert("Lote inexistente, necessário cadastrar");
+        }else{
+          idAtivo.value = j;
+        }
+      }
     }
 }
 </script>
