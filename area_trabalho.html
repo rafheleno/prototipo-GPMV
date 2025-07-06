@@ -146,7 +146,10 @@
     border:none;
     background-color: transparent;
     margin-left: 3px;
-    
+  }
+
+  .nav button:disabled{
+    filter: blur(5px);
   }
 
   .nav select{
@@ -293,7 +296,6 @@
         white-space: wrap;
     }
 
-
   @media (max-width: 800px) {
     body {
         grid-template-rows: 100px 170px auto;
@@ -328,9 +330,6 @@
       display: none;
     }
 
-
-
-
   .article {
     grid-area: article;
     width: 100%;
@@ -360,8 +359,6 @@
       border-left: 1px solid black;
       flex-grow: 2;
     }
-
-
 
     .module {
         flex: 1 1 calc(50% - 40px); 
@@ -403,7 +400,7 @@
         <a href="" style="color: var(--texttituloHigh);" title="Clique para adicionar repositorio de dados"  onclick="saveDataColaboradores(); saveDataAtivos(); saveDataBandejas(); salvardataLote(); salvardatatarefa()">Gerador registro</a>
         <div class="header-section"></div>
         <div class="header-section"><p class="TitleHigh">Gerenciamento Logistico Geolocalizado</p></div>
-        <div class="header-section"><img src="./imagem/imagem-do-usuario-com-fundo-preto.png" width="32" height="32">Usuario</div>
+        <div class="header-section" id="usuariosessao"><img src="./imagem/imagem-do-usuario-com-fundo-preto.png" width="32" height="32"></div>
         <div class="header-section" style="width: 80px;">
         <a href="#" style="color: var(--texttituloHigh);" onclick="toggleContrast()">Alto Contraste</a>
         
@@ -421,7 +418,7 @@
           <button title="Colaboradores" onclick="startTask('cadastro_colaboradores.html',initializeColaboradoresForm)" style="background-image: url('./imagem/adiciona-usuario.png'); background-size: cover;"></button>
           <button style="background-image: url('./imagem/adicionar-tarefa-usuario.png'); background-size: cover;"></button>
           <button onclick="startTask('getsao_plantao.html',inicitializePlanPlantoes)" style="background-image: url('./imagem/calendario.png'); background-size: cover;" title="Planejamento de Plantões" ></button>
-          <button onclick="startTask('tesrminal_tarefacil.html')" style="background-image: url('./imagem/realidade-virtual.png'); background-size: cover;" title="Terminal de Tarefas" ></button>
+          <button onclick="startTask('tesrminal_tarefacil.html')" style="background-image: url('./imagem/realidade-virtual.png'); background-size: cover;" title="Terminal de Tarefas" disabled ></button>
         </div>
 
 
@@ -443,7 +440,7 @@
 
         <div>
           <p>Marcadores</p>
-          <button style="background-image: url('./imagem/adicionar-rotas.png'); background-size: cover;" title="Adiciona Marcador" ></button>
+          <button id="btn_addmarcador" onclick="disableByclass('button','nav',this)" style="background-image: url('./imagem/adicionar-rotas.png'); background-size: cover;" title="Adiciona Marcador"></button>
           <button style="background-image: url('./imagem/localizacao.png'); background-size: cover;" title="Adiciona ponto de localização" ></button>
           <button style="background-image: url('./imagem/rotas.png'); background-size: cover;" title="Converter em rota" ></button>
           <button style="background-image: url('./imagem/metrica.png'); background-size: cover;" title="Medidas de marcações" ></button>
@@ -486,6 +483,9 @@
 
 
 <script>
+
+var mapElemento = [];
+
 function toggleContrast() {
     const body = document.body;
     if (body.hasAttribute('data-theme')) {
@@ -497,7 +497,13 @@ function toggleContrast() {
 
 function DeskMap(){
 
-        const map = L.map('desk').setView([-23.5184821, -47.8652909], 19); 
+        const params = new URLSearchParams(window.location.search);
+        const nome = params.get("email");
+
+        document.getElementById('usuariosessao').innerHTML += nome
+
+
+        const map = L.map('desk').setView([-23.5184821, -47.8652909], 17); 
 
         var iconGreen = L.icon({
           iconUrl: './imagem/muda.png',
@@ -522,17 +528,39 @@ function DeskMap(){
           iconSize:    [32,32],
           iconAnchor:  [16,32],
           popupAnchor: [-3,-76]
-        })        
+        })   
+        
+        var iconMachie = L.icon({
+          iconUrl: './imagem/trator.png',
+          iconSize:    [32,32],
+          iconAnchor:  [16,32],
+          popupAnchor: [-3,-76]
+        }) 
+
+        var iconAgregado = L.icon({
+          iconUrl: './imagem/reboque.png',
+          iconSize:    [32,32],
+          iconAnchor:  [16,32],
+          popupAnchor: [-3,-76]
+        })         
         
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors',
-            maxZoom: 19
+            maxZoom: 20
         }).addTo(map);
 
         L.marker([-23.5184821, -47.8652909],{icon:iconGreen}).addTo(map)
             .bindPopup('<p>Lote    0001</p><p>Prefixo: SUZ-6247</p>')
             .openPopup();
+
+        L.marker([-23.5174821, -47.8651509],{icon:iconMachie}).addTo(map)
+            .bindPopup('<p>Trator Massey Ferguson</p><p>Tempo de uso: 326hrs</p><p>Condutor: João monomo</p><p>Destino:Casa de sombra n.3</p>')
+            .openPopup();   
+
+        L.marker([-23.5174821, -47.8651909],{icon:iconAgregado}).addTo(map)
+            .bindPopup('<p>Reboque de lotes</p>')
+            .openPopup();           
         
         L.marker([-23.5164821, -47.8641231],{icon:iconRed}).addTo(map)
             .bindPopup('Localização do Lote 00020')
@@ -541,13 +569,15 @@ function DeskMap(){
         map.on('click', (event)=> {
         
           // criando o evento click para criar marcadores
-
+          mapElemento.push()
           L.marker(event.latlng,{icon:iconMarker}).addTo(map)
           .on('mouseover',(e)=>{
             e.target.bindPopup('content').openPopup();
           })
           .on('mouseout',(e)=>{
             e.target.closePopup()
+          })
+          .on('click',(e)=>{
           })
           .on('click',(e)=>{
             e.target.remove();

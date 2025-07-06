@@ -3,18 +3,31 @@ function login() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     if (!email.includes('@')) {
-    alert('Talves você tenha errado ou digitado o email, regidite por favor.');
-    return;
+        alert('Talves você tenha errado ou digitado o email, regidite por favor.');
+        return;
     }
     if (!password) {
-    alert('O campo senha não pode estar vazio.');
-    return;
+        alert('O campo senha não pode estar vazio.');
+        return;
     }
     
-    window.location.href = 'area_trabalho.html';
+    window.location.href = 'area_trabalho.html?email='+email;
 }
   
+function disableByclass(tag,classe,el){
 
+    const elementos = document.querySelectorAll('.'+classe+' '+tag);
+    elementos.forEach((item) =>{
+            if(item.id != el.id){
+                if(item.disabled){
+                    item.disabled=false;
+                }else{
+                    item.disabled=true;
+                }
+            }
+    })
+
+}
 
 function toggleID(idtarget){
 
